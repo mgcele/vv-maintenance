@@ -1,0 +1,122 @@
+*{ -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+a, img, button, input, textarea{ -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+/********************************css style rest********************************************/
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+  margin:0;
+  padding:0;
+}
+/** 设置默认字体 **/
+body,
+button, input, select, textarea /* for ie */ {
+  font:1em/1.5 "微软雅黑", tahoma, arial, \5b8b\4f53, sans-serif; cursor:pointer;
+  -webkit-border-radius:0; -moz-border-radius:0; border-radius:0;
+}
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var{ font-style:normal; }
+/* 将斜体扶正 */
+code, kbd, pre, samp{ font-family:courier new, courier, monospace; }
+/* 统一等宽字体 */
+small{ font-size:12px; }
+/* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/** 重置列表元素 **/
+ul, ol{ list-style:none; }
+/** 重置文本格式元素 **/
+a{ text-decoration:none; border:0; outline:none; }
+/*a:hover{ text-decoration:underline; }*/
+/** 重置表单元素 **/
+legend{ color:#000; }
+/* for ie6 */
+fieldset, img{ border:0; }
+/* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea{ font-size:100%; }
+/* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+
+/** 重置表格元素 **/
+table{ border-collapse:collapse; border-spacing:0; }
+/* 清除浮动 */
+.ks-clear:after, .clear:after{
+  content:'\20';
+  display:block;
+  height:0;
+  clear:both;
+}
+.ks-clear, .clear{
+  *zoom:1;
+}
+/*a:focus, input:focus{*/
+/*-webkit-tap-highlight-color:rgba(0, 0, 0, 0);*/
+/*-webkit-user-modify:read-write-plaintext-only;*/
+/*}*/
+/****************************************************************************/
+@font-face{
+  font-family:"iconfont";
+  src:url('iconfont.eot'); /* IE9*/
+  src:url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('iconfont.woff') format('woff'), /* chrome、firefox */ url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  /*font-size:1.8em;*/
+  font-style:normal;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-stroke-width:0.2px;
+  -moz-osx-font-smoothing:grayscale;
+}
+.icon-iconfontleft:before{ content:"\e614"; }
+.icon-iconfontyanzheng:before{ content:"\e613"; }
+.icon-iconfontusername:before{ content:"\e60d"; }
+.icon-iconfontduihao:before{ content:"\e60b"; }
+.icon-iconfontphone:before{ content:"\e60c"; }
+.icon-iconfontcarno:before{ content:"\e60a"; }
+.icon-iconfontright:before{ content:"\e615"; }
+/****************************************************************************/
+.main{ padding:0.5em; }
+.section{ margin-top:0.5em; }
+/*缺省按钮样式*/
+button, .button{ display:inline-block; text-align:center; border:0 solid #ffd600; background-color:#ffd600; width:100%; line-height:2.6em; }
+input[type=password], input[type=text], input[type=tel]{ border:1px solid #ccc; font-size:1em; width:100%; }
+/*m站页面顶部的导航条*/
+.row-layout{ position:relative; width:100%; }
+.row-layout .lt{ position:absolute; left:0; color:#303232;}
+.row-layout .rt{ position:absolute; right:0; color:#303232;}
+.row-layout .lt a, .rt a{font-size:14px;color:#303232;}
+.nav{ color:#303232; height:40px; line-height:40px; text-align:center; border-bottom:1px solid #d9d9d9; background-color:#FFD93A; }
+.nav .title{ font-size:1.2em; font-weight:bold; }
+.nav .center{width:126px;height:100%;display:inline-block;text-align:center;}
+.nav .logo{width:60%;padding-top: 5px;}
+/**/
+.ctrl-group{ border-radius:4px; }
+.ctrl-group li{ width:50%; display:inline-block; background:#f0f0f0; line-height:2.6em; text-align:center; white-space:nowrap; }
+.ctrl-group li:first-child{ border-radius:4px 0 0 4px; }
+.ctrl-group li:last-child{ border-radius:0 4px 4px 0; float:right; }
+.ctrl-group li.active{ background:#ffd600; }
+/*缺省圆角样式*/
+.r5{ -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
+.r3{ -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; }
+/*行表格样式，输入框为底边框，每行带有一个图标*/
+.list{ }
+.list li{ position:relative; border-bottom:1px solid #e6e6e6; line-height:3em; padding:0; margin:0; }
+.list input[type=text],
+.list input[type=number],
+.list input[type=tel],
+.list input[type=password]{ border:0; padding:0 0 0 2.4em; line-height:3em; height:3em; }
+.list i{ position:absolute; padding-left:2px; }
+/*行表格样式，输入框为圆角全边框*/
+.list2 li{ border:0; margin-top:0.5em; }
+.list2 input[type=text],
+.list2 input[type=number],
+.list2 input[type=tel],
+.list2 input[type=password]{ border:1px solid #ccc; padding:0 0.5em; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
+/*行表格样式，输入框为底边框，不带图标*/
+.list3 input[type=text],
+.list3 input[type=number],
+.list3 input[type=tel],
+.list3 input[type=password]{ padding:0 0.5em; }
+/*获取验证码按钮，依赖于button样式*/
+.btn_verifycode{ position:absolute; right:0.2em; top:0.2em; padding:0 1em; width:7.5em; }

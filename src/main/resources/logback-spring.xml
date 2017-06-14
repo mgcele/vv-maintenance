@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="3 seconds">
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                {"timestamp":"%d{yyyy-MM-dd'T'HH:mm:ss.SSS}","thread":"%t","line":"%line","log_level":"%p","class_name":"%C;","msg":"%m"}%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>/home/cib/logs/springboot-demo.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- u6bcfu5c0fu65f6u6edau52a8u4e00u6b21u7684u65e5u5fd7 -->
+            <FileNamePattern>
+                /home/cib/logs/springboot-demo.%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                {"timestamp":"%d{yyyy-MM-dd'T'HH:mm:ss.SSS}","thread":"%t","line":"%line","log_level":"%p","class_name":"%C;","msg":"%m"}%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger name="org.dbunit" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+
+</configuration>

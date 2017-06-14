@@ -1,0 +1,933 @@
+/* 基本字体、box样式    */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body,div,p,label,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote,th,td,header,footer,nav
+	{
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, "微软雅黑", "宋体", Arial, sans-serif;
+	font-size: 14px;
+	color: #474c50;
+}
+
+ul {
+	list-style-position: inside;
+	list-style-type: none;
+	overflow-x: hidden;
+}
+
+ul>li {
+	width: 100%;
+}
+
+.template,.hidden {
+	display: none;
+}
+
+/* 阴影  */
+.boxShadow {
+	-webkit-box-shadow: #666 2px 2px 10px;
+	-moz-box-shadow: #666 2px 2px 10px;
+	-o-box-shadow: #666 2px 2px 10px;
+	-ms-box-shadow: #666 2px 2px 10px;
+	box-shadow: #666 2px 2px 10px;
+}
+
+/* 基本页面  {{ */
+body {
+	padding-right: 1px;
+}
+
+.hrLeft {
+	text-align: left !important;
+}
+
+.hrRight {
+	text-align: right !important;
+}
+
+.hrCenter {
+	text-align: center !important;
+}
+
+.vtTop {
+	vertical-align: top;
+}
+
+.vtBottom {
+	vertical-align: bottom;
+}
+
+.vtMiddle {
+	vertical-align: middle;
+}
+
+.center {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.keepSpace {
+	white-space: pre;
+}
+
+.breakWord {
+	word-wrap: break-word;
+}
+
+.noWrap {
+	word-wrap: normal;
+}
+
+.lineHeight1_3 {
+	line-height: 1.3;
+}
+
+.lineHeight1_5 {
+	line-height: 1.5;
+}
+
+.noBorder,input.noBorder {
+	border-width: 0 !important;
+}
+
+div#pageHeader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #E7E8E7;
+	color: #FFFFFF;
+	border: 0;
+}
+
+#pageTitle {
+	font-size: 16px;
+}
+
+div#pageFooter {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 56px;
+	line-height: 56px;
+	text-align: center;
+	background: #EEEEEE;
+	border: 0;
+	border-top: 1px solid #E7E8E7;
+}
+
+div#pageBody,div.pageBody {
+	position: fixed;
+	top: 40px;
+	bottom: 56px;
+	left: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* 固定条 */
+div.fixedBar {
+	position: fixed;
+	top: 40px;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+/* 基本页面  }} */
+
+/* 页面组织块  {{  */
+div.blockBanner {
+	border-width: 0;
+	width: 98%;
+	max-width: 98%;
+	padding: 4px;
+	overflow: hidden;
+}
+
+div.fullBanner {
+	border-width: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+div.block {
+	border-width: 0;
+	width: 99.5%;
+	max-width: 99.5%;
+	overflow: hidden;
+	display: inline-block;
+}
+
+div.blockText {
+	border-width: 0;
+	width: 96%;
+	max-width: 96%;
+	padding: 4px 10px;
+	overflow-x: hidden;
+	word-wrap: break-word;
+}
+
+div.blockText>table {
+	width: 100%;
+}
+
+div.blockText>table tr {
+	height: 20px;
+	line-height: 20px;
+}
+
+div.hrseperator {
+	border-width: 0;
+	width: 96%;
+	height: 0;
+	margin: 3px auto;
+	border-bottom: 1px solid #E7E8E7;
+}
+
+/* 圆角表格 */
+table.roundRegion {
+	border-width: 0;
+	border-spacing: 0;
+	padding: 0;
+	width: 98%;
+	margin: 10px auto;
+	table-layout: fixed;
+}
+
+table.roundRegion>tbody>tr {
+	height: 30px;
+	line-height: 50px;
+}
+
+table.roundRegion>tbody>tr>td {
+	border: 1px solid #DFDFDF;
+	border-bottom-width: 0;
+	border-radius: 0;
+}
+
+table.roundRegion>tbody>tr>td.value {
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+table.roundRegion>tbody>tr>td.grayBg {
+	background-color: #F2F2F2;
+	text-align: center;
+	width: 50px;
+}
+
+table.roundRegion>tbody>tr>td.transBg {
+	text-align: center;
+	width: 38px;
+}
+
+table.roundRegion>tbody>tr.first>td {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+table.roundRegion>tbody>tr.last>td {
+	border-bottom-width: 1px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+table.roundRegion>tbody>tr>td.noRightBorder {
+	border-right-width: 0;
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+}
+
+table.roundRegion>tbody>tr>td.noLeftBorder {
+	border-left-width: 0;
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+
+table.roundRegion>tbody>tr>td.noLeftRadius {
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+}
+
+/* --- banner --- */
+table.bannerRegion {
+	border-width: 0;
+	border-spacing: 0;
+	padding: 0;
+	height: 40px;
+	width: 98%;
+	margin: 4px auto 4px auto;
+}
+
+/* 简单横条区域 */
+table.pureRegion {
+	border-width: 0;
+	border-spacing: 0;
+	padding: 0;
+	height: 40px;
+	width: 98%;
+	margin: 0 auto;
+}
+
+table td.banner {
+	border: 1px solid #FBD383;
+	border-radius: 4px;
+	padding: 8px;
+	height: 50px;
+	width: 100%;
+	background-color: #F9F4D6;
+	color: #7B5739;
+	text-align: left;
+}
+
+td.banner .lineTitle {
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 28px;
+}
+
+td.banner .lineText {
+	line-height: 1.5;
+	font-size: 12px;
+	padding-left: 22px;
+}
+
+/* --- field ---  */
+table.fieldRegionWidth {
+	width: 98%;
+	margin: 20px auto;
+}
+
+table.fieldRegion {
+	border-width: 0;
+	border-spacing: 0;
+	padding: 0;
+	height: 50px;
+	width: 98%;
+	margin: 20px auto;
+	table-layout: fixed;
+}
+
+table.fieldRegion .focus {
+	background-color: #FFFFCB;
+}
+
+table.fieldRegion td.label {
+	border: 1px solid #F1F4FB;
+	border-radius: 4px 0 0 4px;
+	width: 50px;
+	height: 100%;
+	background-color: #F1F4FB;
+	padding-right: 6px;
+	text-align: right;
+	color: #858992;
+}
+
+table.fieldRegion td.value {
+	border: 1px solid #F1F4FB;
+	border-radius: 0 4px 4px 0;
+	width: 84%;
+	height: 100%;
+	padding-left: 6px;
+	padding-right: 32px;
+	text-align: left;
+	vertical-align: middle;
+}
+
+table.fieldRegion td.value input:disabled,table.fieldRegion td.value area:disabled,table.fieldRegion td.value select:disabled
+	{
+	background-color: #FFFFFF;
+}
+/* 页面组织块  }}  */
+.arrowDown {
+	background-image: url("../images/icons/common/arrow-down.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 24px 24px;
+}
+
+.arrowDown2 {
+	background-image: url("../weixin/weixin1.2/ico_write_grey.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 54px 24px;
+}
+
+.arrowUp {
+	background-image: url("../images/icons/common/arrow-up.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 24px 24px;
+}
+
+.arrowRight {
+	background-image: url("../images/icons/common/arrow-right.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 24px 24px;
+}
+
+.arrowLeft {
+	background-image: url("../images/icons/common/arrow-left.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 24px 24px;
+}
+
+.drowDownBtn {
+	background-image: url("../images/icons/common/dropdown-btn.png");
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-size: 24px 24px;
+	height: 20px;
+	padding-right: 24px;
+	padding-left: 4px;
+	text-align: left;
+}
+
+.valueColor {
+	color: #ef634a;
+}
+
+.hintText {
+	color: #C9C9C9;
+}
+
+.cornerAll {
+	border: 1px solid #EFEFFF;
+	border-radius: 4px;
+}
+
+.cornerLeft {
+	border: 1px solid #EFEFFF;
+	border-radius: 4px 0 0 4px;
+}
+
+.cornerRight {
+	border: 1px solid #EFEFFF;
+	border-left-width: 0;
+	border-radius: 0 4px 4px 0;
+}
+
+.cornerCenter {
+	border: 1px solid #EFEFFF;
+	border-left-width: 0;
+	border-radius: 0;
+}
+
+.redFlag {
+	background-image: url('../images/icons/common/flag-red.png');
+	background-position: top right;
+	background-size: 8px 8px;
+	background-repeat: no-repeat;
+}
+
+.redRoundRect {
+	border: 1px solid #ef634a;
+	border-radius: 4px;
+	padding: 2px;
+}
+/* Toast 提示 {{{ --------------- */
+div.toast {
+	position: absolute;
+	z-index: 10000000;
+	padding: 10px;
+	width: auto;
+	min-width: 200px;
+	min-height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 10px;
+	background: #000;
+	background: rgba(0, 0, 0, .7);
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70 );
+	*background: #000;
+	*filter: alpha(opacity=70);
+}
+
+div.toast>span.content {
+	display: inline-block;
+	color: #FFFFFF;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	padding: 2px;
+	padding-top: 40px;
+}
+
+div.toast>span.tip {
+	background-image: url("../images/icons/toast/tip.png");
+}
+
+div.toast>span.warn {
+	background-image: url("../images/icons/toast/warn.png?v=1");
+}
+
+div.toast>span.error {
+	background-image: url("../images/icons/toast/error.png");
+}
+
+/* Toast 提示 --------------- }}} */
+
+/* 开关按钮 {{{ --------------- */
+.switchBtn {
+	display: inline-block;
+	width: 48px;
+	height: 24px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.switchBtn>input {
+	display: none;
+}
+
+.switchOn {
+	background-image: url("../images/icons/common/switch-on.png");
+}
+
+.switchOff {
+	background-image: url("../images/icons/common/switch-off.png");
+}
+
+/* 开关按钮  ---------------}}} */
+
+/* --- 透明表格 --- */
+table.transGrid {
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;
+	word-wrap: break-word;
+}
+
+/** --- **/
+table.thin-grid-line {
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+table.thin-grid-line tbody tr td {
+	height: 36px;
+	border: 1px solid #DEDEDE;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.thin-grid-line tbody tr.first td {
+	border-top-width: 0;
+}
+
+table.thin-grid-line tbody tr td.noborder {
+	border-left-width: 0;
+	border-right-width: 0;
+}
+
+/* 下拉菜单   {{ ---------------------------- */
+ul.menu {
+	display: inline-block;
+	background-color: #FFFFFF;
+	border: 1px solid #EAEAEA;
+	border-bottom-width: 0;
+	list-style: none;
+	cursor: pointer;
+}
+
+li.menu-item {
+	min-width: 60px;
+	padding: 4px 8px;
+	line-height: 24px;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+li.menu-item-active {
+	background-color: #FFCC33;
+}
+/* 下拉菜单 ---------------------------- }} */
+
+/* 日期选择   {{ ---------------------------- */
+.datePicker {
+	width: 340px;
+	background-color: #FFFFFF;
+	cursor: default;
+}
+
+.datePicker table.weekdayNames {
+	width: 100%;
+	background-color: #EEEEEE; /*#e2e4e4*/;
+	font-weight: bold;
+}
+
+.datePicker table.weekdayNames td {
+	color: #ef634a;
+}
+
+.datePicker table.weekdays {
+	width: 100%;
+	color: #000000;
+	font-family: 'Courier';
+	white-space: pre;
+}
+
+.datePicker .blockHeader {
+	background-color: #EEEEEE;
+	font-weight: bold;
+	color: #666666;
+}
+
+.datePicker .blockHeader span.year {
+	color: #474c50;
+	font-size: 8px;
+	font-weight: normal;
+}
+
+.datePicker .blockHeader span.month {
+	color: #ef634a;
+	line-height: 20px;
+}
+
+.datePicker .workday {
+	cursor: pointer;
+}
+
+.datePicker .weekend {
+	color: #2B5777;
+	cursor: pointer;
+}
+
+.weekdays td,.weekdayNames td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.selected-day {
+	cursor: default;
+	background-color: #f9de81;
+	color: #ef634a !important;
+}
+
+.disabled-day {
+	cursor: not-allowed;
+	font-weight: normal;
+    color: #666666;
+    background-size: 8px 8px;
+    background: #EEEEEE url('../images/icons/common/flag-red.png') no-repeat top right;
+}
+/* 日期选择  ---------------------------- }}  */
+
+/* 一般 单选切换组   {{ -------------------------- */
+table.radioGroup {
+	table-layout: fixed;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+table.radioGroup>tbody>tr>td {
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.radioGroup>tbody>tr>td>label.border {
+	border-width: 1px 0 1px 1px;;
+	border-style: solid;
+	border-color: #FFCC00;
+}
+
+table.radioGroup>tbody>tr>td>label.borderLast {
+	border-right-width: 1px;
+}
+
+table.radioGroup>tbody>tr>td>label.seperator {
+	display: inline-block;
+	width: 1px;
+	background-color: transparent;
+}
+
+table.radioGroup>tbody>tr>td>label.leftRadius {
+	/*border-radius: 8px 0 0 8px;*/
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px;
+}
+
+table.radioGroup>tbody>tr>td>label.rightRadius {
+	/*border-radius: 0 8px 8px 0;*/
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px;
+}
+
+table.radioGroup .checkedMark {
+	background-image: url('../images/icons/common/check-mark.png');
+	background-position: top right;
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+}
+
+table.radioGroup .bg {
+	background-color: #F2F2F2;
+}
+
+table.radioGroup .bgChecked {
+	background-color: #FFCC00;
+	color: #000 !important;
+}
+
+.btnSelected {
+	background-color: #f4c51f;
+	color: #000000;
+}
+
+/* 一般  单选切换组   -------------------------- }} */
+
+/* Tab页签切换组   {{ -------------------------- */
+table.tabGroup {
+	table-layout: fixed;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+table.tabGroup>tbody>tr>td {
+	border-style: solid;
+	border-color: #EEEEEE;
+	border-width: 1px 0;
+	text-align: center;
+	vertical-align: middle;
+}
+
+table.tabGroup>tbody>tr>td.seperator {
+	width: 1px;
+	background-image: url("../images/icons/common/bg-vt-sep.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 1px 60%;
+}
+
+table.tabGroup .bg {
+	background-color: #FFFFFF;
+}
+
+table.tabGroup .bgChecked {
+	color: #000 !important;
+	background-image: url("../images/icons/common/bg-tab-indicator.png");
+	background-position: center bottom;
+	background-repeat: repeat-x;
+	background-size: 3px 3px;
+}
+
+/* Tab页签切换组   -------------------------- }} */
+.normalInput {
+	text-align: center;
+	padding: 4px;
+	width: 100px;
+	height: 34px;
+	/*处理html5的placehoder上下不居中的问题*/
+	line-height: normal;
+	line-height: 30px/9;
+	border: 1px solid #EFEFFF;
+	border-radius: 4px;
+}
+
+.normalInput:disabled {
+	color: #333333;
+	border: 0 solid #EFEFFF;
+	background-color: #FFFFCB;
+}
+
+/*  -- 默认按钮  -- */
+.defaultBtn {
+	height: 34px;
+	line-height: 30px;
+	width: 200px;
+	text-align: center;
+	color: #000000;
+	border: 1px solid #DFA800;
+	border-radius: 4px;
+	background-color: #FFCC00;
+	outline: none;
+}
+
+.defaultBtn:disabled {
+	color: #888888;
+	border: 1px solid #AAAAAA;
+	background-color: #FFFFCB;
+}
+
+/* -- 普通按钮 -- */
+button.default {
+	border: 1px solid #FFCC00;
+	background-color: #FFCC00;
+}
+
+.normalBtn {
+	height: 30px;
+	line-height: 28px;
+	width: 80px;
+	text-align: center;
+	color: #000;
+	background-color: #E9E9E9;
+	border-radius: 4px;
+	outline: none;
+	border: 1px solid #DDDDDD;
+}
+
+/*  透明按钮  */
+.transBtn {
+	height: 28px;
+	line-height: 26px;
+	width: 60px;
+	text-align: center;
+	border: 1px solid #F0F0F0;
+	border-radius: 2px;
+	background-color: transparent;
+	outline: none;
+}
+
+.transBtn:hover {
+	color: #000;
+	border: 1px solid #FFF;
+}
+
+.transBtn:disabled {
+	color: #AAA;
+	border: 1px solid #CCCCCC;
+}
+
+.formBtn {
+	height: 28px;
+	line-height: 26px;
+	width: 60px;
+	text-align: center;
+	color: #474c50;
+	border: 1px solid #E0E0E0;
+	border-radius: 2px;
+	background-color: #EFEFEF;
+	outline: none;
+}
+
+.formLabelRow {
+	height: 40px;
+	line-height: 38px;
+	text-align: left;
+	vertical-align: bottom;
+	width: 100%;
+	padding-left: 2px;
+}
+
+.formValuelRow {
+	height: 28px;
+	text-align: left;
+	width: 100%;
+	vertical-align: top;
+}
+
+.formBtn:hover {
+	border: 1px solid #AAAAAA;
+	background-color: #FBEFC5;
+	color: #000;
+}
+
+.formBtn:disabled {
+	color: #AAA;
+	border: 1px solid #CCCCCC;
+}
+
+.leftRadius {
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+}
+
+.rightRadius {
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+}
+
+/* - 圆角样式 - */
+.roundAll {
+	border-radius: 14px;
+}
+
+.roundLeft {
+	border-radius: 14px 2px 2px 14px;
+}
+
+.roundRight {
+	border-radius: 2px 14px 14px 2px;
+}
+
+.loading {
+	background-image: url("../images/icons/msg/loading.gif");
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	padding: 2px 8px;
+	padding-left: 34px;
+	display: inline-block;
+	line-height: 30px;
+	height: 30px;
+	color: #578add;
+	border-radius: 15px;
+}
+
+.radio {
+	display: inline-block;
+	line-height: 24px;
+	height: 24px;
+	vertical-align: middle;
+	padding-left: 26px;
+	background-position: left center;
+	background-size: 18px 18px;
+	background-repeat: no-repeat;
+	background-image: url('../images/icons/common/radio.png');
+}
+
+.radioChecked {
+	background-image: url('../images/icons/common/radio-checked.png');
+}
+
+.check {
+	display: inline-block;
+	line-height: 24px;
+	height: 24px;
+	vertical-align: middle;
+	padding-right: 26px;
+	border: 1px solid #ef634a;
+	background-position: center right;
+	background-size: 18px 18px;
+	background-repeat: no-repeat;
+	background-image: url('../images/icons/common/check.png');
+}
+
+.checkChecked {
+	background-image: url('../images/icons/common/check-checked.png');
+}
+
+span.vtSeperator {
+	vertical-align: middle;
+	display: inline-block;
+	width: 1px;
+	height: 24px;
+	background-image: url("../images/icons/common/bg-vt-sep.png");
+	background-position: center bottom;
+	/*background-repeat: no-repeat;*/
+	background-size: 1px 70%;
+}

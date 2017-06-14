@@ -1,0 +1,479 @@
+* { box-sizing: border-box; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+*:focus { outline: none; }
+/* 高亮控件区块背景色、文本色 */
+.hilite {
+    background-color: #f4c51f;
+    color: #474c50;
+}
+.hiliteBgColor {
+    background-color: #f4c51f;
+}
+.hiliteColor {
+    color: #474c50;
+}
+.normal {
+    background-color: #f2f2f2;
+    color: #474c50;
+}
+.normalBgColor {
+    background-color: #f2f2f2;
+}
+.normalColor {
+    color: #474c50;
+}
+.grayBgColor {
+    background-color: #f0f2f5;
+}
+.hintBlueColor {
+    color: #578add !important;
+}
+.btnRedColor {
+    color: #ef634a !important;
+}
+.emRedColor {
+    color: #ef634a !important;
+}
+.hiliteItem {
+    background-color: #fbefc5 !important;
+    color: #000000 !important;
+}
+.labelColor {
+    color: #858992;
+}
+.liteGrayColor {
+    color: #dedede;
+}
+span.liteGrayHint {
+    display: inline-block;
+    float: left;
+    position: relative;
+    left: 0;
+    height: auto;
+    color: #dedede;
+}
+span.redHintDot {
+    display: inline-block;
+    float: right;
+    position: relative;
+    top: 24px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ef634a;
+}
+div.noContentHint {
+    color: #dedede;
+    background-image: url("../images/icons-app/no-content.png?v=2");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: 128px 128px;
+    vertical-align: bottom;
+    padding-top: 140px !important;
+    text-align: center;
+    vertical-align: bottom !important;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-top: 3em;
+    /*
+    position: absolute;
+    width: 192px;
+    height: 164px;
+    left: 50%;
+    top: 50%;
+    margin-left: -96px;
+    margin-top: -82px;
+    */
+    display: none;
+}
+/* 时间选择 {{ ----------------------------- */
+.timePicker {
+    width: 340px;
+    background-color: #ffffff;
+    cursor: default;
+}
+.timePicker > table {
+    width: 100%;
+    color: #000000;
+    font-family: 'Courier';
+    white-space: pre;
+}
+.timeHeader {
+    width: 60px;
+    background-color: #eeeeee;
+    font-weight: bold;
+    color: #ef634a;
+    height: 32px;
+}
+.normal-time {
+    cursor: pointer;
+    font-weight: normal;
+    background-color: #ffffff;
+}
+.selected-time {
+    cursor: default;
+    background-color: #f9de81;
+    color: #ef634a !important;
+}
+td.disabled-time {
+    cursor: not-allowed;
+    font-weight: normal;
+    background-color: #eeeeee;
+    color: #666666;
+    background-image: url('../images/icons/common/flag-red.png');
+    background-position: top right;
+    background-size: 8px 8px;
+    background-repeat: no-repeat;
+}
+/* 时间选择  --------------------------- }}  */
+
+/* 车型选择  {{ ------------------*/
+.carTypeSelector {
+    width: 98%;
+    border: 1px solid #aaaaaa;
+    background-color: #f0f0f0;
+    border-spacing: 0;
+    padding: 0;
+}
+.carTypeSelector .typeHeader {
+}
+.carTypeSelector .typeBody {
+    width: 100%;
+    height: 280px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* ios5+ */
+    padding-bottom: 1px;
+}
+.carTypeSelector .typeFooter {
+    height: 52px;
+    width: 100%;
+    background: #eeeeee;
+    text-align: center;
+}
+.carTypeSelector button.cancel {
+    height: 40px;
+    line-height: 38px;
+    font-size: 16px;
+}
+.carTypeSelector .listItem {
+    height: auto;
+    line-height: 32px;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 34px;
+    border: 0 solid #eeeefe;
+    border-bottom-width: 1px;
+    background-color: #fefefe;
+    cursor: default;
+    margin: 0 1px;
+    color: #000;
+}
+.carTypeSelector .listItem1st {
+    border-top-width: 1px;
+}
+.sglSelect {
+    background-position: 4px center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/common/radio.png');
+}
+.sglSelected {
+    background-color: #fbefcc !important;
+    background-position: 4px center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/common/radio-checked.png');
+}
+.mulSelect {
+    background-position: 4px center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/common/check.png');
+}
+.mulSelected {
+    background-position: 4px center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-image: url('../images/icons/common/check-checked.png');
+}
+.bgRightTop {
+    background-position: top right;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+/* 车型选择  --------------------}} */
+
+/* -- 默认标示图标 -- */
+.defaultMark {
+    background-image: url('../images/icons/common/default-mark.png?v=2');
+    background-position: center center;
+    background-size: 24px 20px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+label.choice {
+    line-height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+}
+label.choice > input {
+    line-height: 28px;
+    vertical-align: middle;
+}
+.italic {
+    font-style: italic;
+}
+.delete {
+    text-decoration: line-through;
+}
+/* 字段图标 */
+.iconWho {
+    background-image: url("../images/icons-app/icon-who.png?v=3");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+.iconGender {
+    background-image: url("../images/icons-app/icon-gender.png?v=2");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+.iconMob {
+    background-image: url("../images/icons-app/icon-mob.png?v=3");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+.iconCar {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 5px;
+    background-repeat: no-repeat;
+    height: 24px;
+    display: block;
+}
+.iconLinkInfo {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 -47px;
+    background-repeat: no-repeat;
+    height: 28px;
+    display: block;
+}
+.iconTime {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 -73px;
+    background-repeat: no-repeat;
+    height: 28px;
+    display: block;
+}
+.iconAddr {
+    background-image: url("../images/icons-app/icon-addr.png?v=2");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+.iconService {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0px -20px;
+    background-repeat: no-repeat;
+    height: 26px;
+    display: block;
+}
+.iconCoupon {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 -125px;
+    background-repeat: no-repeat;
+    height: 24px;
+    display: block;
+}
+.iconMoney {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 -102px;
+    background-repeat: no-repeat;
+    height: 28px;
+    display: block;
+}
+.iconPayWay {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 -247px;
+    background-repeat: no-repeat;
+    height: 30px;
+    display: block;
+}
+.iconOnSite {
+    background-image: url("../images/icons-app/order_icon.png");
+    background-size: 24px auto;
+    background-position: 0 -230px;
+    background-repeat: no-repeat;
+    height: 30px;
+    display: block;
+}
+.iconRefresh {
+    width: 32px;
+    hegith: 32px;
+    border-width: 0 !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("../images/icons-app/icon-refresh.png");
+}
+.iconEdit {
+    width: 24px;
+    hegith: 24px;
+    border-width: 0 !important;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-image: url("../images/icons-app/icon-edit.png");
+    cursor: pointer;
+}
+.iconDelete {
+    width: 48px;
+    hegith: 24px;
+    padding: 0 14px;
+    border-width: 0 !important;
+    background-position: 14px center;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-image: url("../images/icons-app/icon-delete.png");
+    background-color: #ffffff;
+    cursor: pointer;
+}
+button.add {
+    width: 80%;
+    height: 40px;
+    border-width: 0;
+    border-radius: 8px;
+}
+button.add > span.icon {
+    display: inline-block;
+    width: 24px;
+    hegith: 24px;
+    border-width: 0 !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-image: url("../images/icons-app/icon-add.png");
+    cursor: pointer;
+}
+.iconMyInfo {
+    background: url("../images/icons-app/icon-myinfo.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconMyOrder {
+    background: url("../images/icons-app/icon-myorder.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconMyCbbOrder {
+    background: url("../images/icons-app/icon-mycbborder.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconMyCoupon {
+    background: url("../images/icons-app/icon-mycoupon.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconVip {
+    background: url("../images/icons-app/vip.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconAfterSale {
+    background: url("../images/icons-app/icon-aftersale.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconGift {
+    background: url("../images/icons-app/icon-gift.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.iconTousu {
+    background: url("../images/icons-app/icon-tousu.png") no-repeat center center;
+    background-size: 32px 32px;
+}
+.locator {
+    width: 26px;
+    height: 36px;
+    line-height: 34px;
+    border-width: 0 !important;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-color: transparent;
+    background-image: url("../images/icons-app/icon-locator.png");
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    outline: none;
+}
+a.hotline {
+    display: inline-block;
+    width: 80%;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    background-color: #ffcc00;
+    border-radius: 14px;
+    font-size: 26px;
+    color: #474c50;
+}
+a.hotline > img.icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+    vertical-align: middle;
+}
+a.hotlineSmall {
+    display: inline-block;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    background-color: #ffcc00;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #474c50;
+}
+.dlgLineHeight {
+    height: 50px !important;
+    line-height: 50px !important;
+}
+.div_input {
+    border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; padding-left: 4px; cursor: pointer;
+}
+/*页签*/
+.uc_tabbar {
+    display: table; width: 100%; cursor: pointer; border-bottom: 1px solid #ccc; padding: 0; margin: 0;
+}
+.uc_tabbar span {
+    list-style: none; display: table-cell; padding: 0.8em 0; text-align: center; border-right: 1px solid #ccc; margin: 0;
+}
+.uc_tabbar span.active {
+    font-weight: bold;
+}
+
+.flex{display:-webkit-box;display:-webkit-flex;display:flex;}
+
+.areaSelector{display:none; width:100%; border:2px solid #333333; z-index:99999999;background:#fff;position:absolute;bottom:0;cursor:pointer;}
+.areaSelector .top{position: relative;text-align:center;width:100%;height:2rem;line-height:2rem;}
+.areaSelector .top .close{position: absolute;right:0;width:2rem; cursor:pointer;}
+.areaSelector .top .close:hover{border:1px solid #cccccc;background:#ccc;}
+.areaSelector .title{background:#fff;padding:0 1rem;border-bottom:1px solid #D5D5D5; height:2.4rem;line-height:2.4rem;}
+.areaSelector .title span{text-align:left;margin-right:1rem;line-height:2.4rem;font-weight:bold;overflow:hidden;}
+.areaSelector .title span.selected{color:#ff0000;border-bottom:1px solid #ff0000;}
+.areaSelector ul{height:20em;padding:0 1rem;}
+.areaSelector li{line-height:240%; text-align:left;border-bottom:1px solid #eeeeee;}
+.areaSelector li.selected {color:#ff0000;font-weight: bold;}
+.areaSelector li.selected::after{content:"√";margin-left:1rem;}
+.full-cover{z-index:99999998;position:fixed;left:0;right:0;top:0;bottom:0;opacity:0.09;background:#fff;}

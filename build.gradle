@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        mavenCentral()//依赖Maven仓库
+    }
+    dependencies {
+        //使用1.5.3.RELEASE版本的Spring框架
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+//生成的jar包包名和版本
+jar {
+    baseName = 'vvbaoyang'
+    version =  '1.0.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+//设置jdk的版本
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+//添加编译时的依赖
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("mysql:mysql-connector-java")
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.json:json:20160810")
+    compile("org.apache.commons:commons-lang3:3.5")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

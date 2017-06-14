@@ -1,0 +1,298 @@
+* { box-sizing: border-box;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+*:focus {outline: none;}
+html, body{
+  height:100%;
+}
+div.root{
+  width:100%;
+}
+a{
+  text-decoration:none;
+}
+div#pageHeader, div.pageHeader{
+  position:relative;
+  width:100%;
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  border-bottom:1px solid #d9d9d9;
+  font-weight:normal;
+  color:#303232; 
+  background-color:#FFD93A;
+}
+div#pageHeader .lt, div.pageHeader .lt{
+  position:absolute;
+  left:0;
+}
+div#pageHeader .center, div.pageHeader .center{
+  width:126px;height:100%;display:inline-block;text-align:center;
+}
+div#pageHeader .logo, div.pageHeader .logo{
+  width:60%;
+  padding-top: 5px;
+}
+div#pageHeader .rt, div.pageHeader .rt{
+  position:absolute;
+  right:0;
+}
+.lt a, .rt a{
+  color:#303232;
+  font-size:14px;
+}
+.pageTitle{
+  color:#000000;
+}
+div#pageBody, div.pageBody{
+  position:absolute;
+  left:0;
+  right:0;
+  top:40px;
+  bottom:52px;
+  width:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch; /* ios5+ */
+}
+/*为手机内浏览器特设body样式，采用相对定位，不设置top距离*/
+div#mobilePageBody, div.mobilePageBody{
+  left:0;
+  right:0;
+  bottom:52px;
+  width:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch; /* ios5+ */
+}
+div#pageFooter, div.pageFooter{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100%;
+  height:52px;
+  line-height:50px;
+  text-align:center;
+  background:#fefefe;
+  border:0;
+  border-top:1px solid #e7e8e7;
+}
+div#pageHeaderX, div.pageHeaderX{
+  left:0;
+  right:0;
+  width:100%;
+  height:40px;
+  line-height:40px;
+  text-align:center;
+  background:#e7e8e7;
+  border:0;
+}
+table#pageFooterX, table.pageFooterX{
+  width:100%;
+  height:52px;
+  line-height:50px;
+  text-align:center;
+  border:0;
+  margin-top:20px;
+  margin-bottom:10px;
+  table-layout:fixed;
+}
+table.pageFooter{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:52px;
+  line-height:50px;
+  text-align:center;
+  border:0;
+  margin:0;
+  table-layout:fixed;
+  background-color:#fefefe;
+}
+table.pageFooter tr > td{
+  text-align:center;
+  padding:4px 0;
+}
+table#pageFooterX button, table.pageFooterX button, table.pageFooter button{
+  height:40px;
+  line-height:38px;
+  font-size:16px;
+}
+div.pageFooter > button{
+  height:40px;
+  line-height:38px;
+}
+div.fixedBar{
+  position:absolute;
+}
+table td.bannerClean{
+  border:1px solid #eeeeee;
+  background-color:transparent;
+  border-radius:4px;
+  padding:8px;
+  height:50px;
+  width:100%;
+}
+table.fieldRegion{
+  margin:10px auto;
+}
+table.fieldRegion td > a{
+  display:inline-block;
+  height:40px;
+  line-height:40px;
+  width:100%;
+  color:#000000;
+  text-decoration:none;
+}
+table.fieldRegion td.label{
+  width:50px;
+  border:1px solid #dedede;
+  background-color:transparent;
+}
+table.fieldRegion td.noRightBorder{
+  border-right:0;
+}
+table.fieldRegion td.noLeftBorder{
+  border-left:0;
+}
+table.fieldRegion td.value{
+  border:1px solid #dedede; border-left-width:0;
+  background-color:transparent;
+}
+table.fieldRegion td.noLabel{
+  width:50px;
+  border-width:0;
+  background-color:transparent;
+}
+table.fieldRegion td.noValue{
+  border-width:0;
+  background-color:transparent;
+  text-align:left;
+}
+/* 水平线  {{ */
+table.fieldRegion tr.hrBorder{
+  height:50px;
+  line-height:50px;
+}
+table.fieldRegion tr.hrBorder > td.label{
+  border-radius:0;
+  border-width:0;
+  border-bottom-width:1px;
+}
+table.fieldRegion tr.hrBorder > td.value{
+  border-radius:0;
+  border-width:0;
+  border-bottom-width:1px;
+}
+table.fieldRegion tr.first > td.label{
+  border-top-width:1px;
+}
+table.fieldRegion tr.first > td.value{
+  border-top-width:1px;
+}
+table.fieldRegion tr.noBorder > td{
+  border-bottom-width:0 !important;
+}
+/* 水平线  }} */
+a.block{
+  display:inline-block;
+  height:30px;
+  line-height:40px;
+  width:100%;
+  color:#000000;
+  text-decoration:none;
+  white-space:pre;
+}
+table tr td.hrSplitter{
+  height:5px;
+  vertical-align:middle;
+}
+table tr td.hrSplitter > div{
+  display:inline-block;
+  width:100%;
+  height:1px;
+  border-top:1px dotted #cccccc;
+  top:2px;
+}
+table tr td.vtSplitter{
+  width:5px;
+  text-align:center;
+}
+table tr td.vtSplitter > div{
+  display:inline-block;
+  width:1px;
+  height:100%;
+  border-left:1px dotted #cccccc;
+  left:2px;
+}
+div.textLine{
+  line-height:24px;
+  width:100%;
+}
+.clickable{
+  cursor:pointer;
+}
+input.readableInput, textarea.readableInput{
+  text-align:left;
+  padding-left:4px;
+  padding-right:4px;
+  width:90px;
+  height:34px;
+  border:1px solid #efefff;
+  border-radius:4px;
+  line-height:34px;
+}
+input.underline{
+  border-width:0;
+  border-bottom:1px solid #efefff;
+  border-radius:0;
+}
+input.readableInput:disabled{
+  color:#474c50;
+  border:0 solid #efefff;
+  background-color:#ffffcb;
+}
+div.panel{
+  width:100%;
+  height:100%;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch; /* ios5+ */
+}
+.template table{ border-collapse:collapse; }
+.template table td{ border-bottom:1px solid #dedede; height:50px; }
+
+
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot'); /* IE9*/
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff') format('woff'), /* chrome、firefox */
+  url('iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-xiangyou:before { content: "\f016d"; }
+.icon-xiangzuo:before { content: "\f016e"; }
+.icon-fanhui:before { content: "\f0292"; }
+.icon-xiangyou1:before { content: "\f02af"; }
+.icon-xiangzuo1:before { content: "\f01a8"; }
+.icon-xiangyou2:before { content: "\f01a9"; }
+
+/*一行两列式布局，第一列固定宽度，第二列100%宽度*/
+.list li{ line-height:3em; border-bottom:1px solid #ccc; position:relative; }
+.list i{ position:absolute; left:0; font-style:normal; line-height:3em;}
+.list input[type='text'],
+.list input[type='textarea'],
+.list input[type='tel']{ font-size:1em; line-height:3em; width:100%; border:0;}
+.list .m3{ padding-left:3em; }
+.list .m4{ padding-left:4em;}
+.button{width:auto;font-size:1em;border:0;padding:0 1em;line-height:2.8em; position:absolute;right:0;top:0.1em; }

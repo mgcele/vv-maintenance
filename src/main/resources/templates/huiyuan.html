@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>会员中心</title>
+    <meta name="keywords" content="易快修,在线养车,互联网快修,汽车保养,汽车美容,上门服务,汽车上门保养,汽车救援,北京救援,上门修车,宝马,奥迪,大众,一站式的上门汽车保养美容服务!"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+
+
+    <link rel="stylesheet" th:href="@{/css/ykx.ext.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mobile.css}"/>
+
+    <style>
+        body, ul {
+            margin: 0;
+            padding: 0
+        }
+
+        li {
+            list-style: none
+        }
+
+        header {
+            width: 100%;
+            background-color: #fff;
+            padding: 0;
+            margin: 0
+        }
+
+        header:after {
+            content: "";
+            clear: both;
+            visibility: hidden;
+            display: block
+        }
+
+        .baseinfo {
+            padding: 1em;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .baseinfo figure {
+            float: left;
+            margin: 0;
+        }
+
+        .baseinfo figure figcaption {
+            margin-top: 0.5em;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .baseinfo figure img {
+            width: 80px;
+            border-radius: 8px
+        }
+
+        .baseinfo ul {
+            float: right;
+        }
+
+        .baseinfo ul * {
+            padding-top: 0.5em;
+            color: #568BDD;
+            font-size: 1em;
+        }
+
+        #_active_card * {
+            line-height: 2.4em;
+            width: 100%;
+            font-size: 1em;
+        }
+
+        #_active_card button, #_active_card input {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        #_active_card input {
+            border: 1px solid #d9d9d9;
+            padding: 0 0.5em;
+        }
+
+        #_active_card button {
+            background: #f4c51f;
+            color: #fff;
+            border: 0;
+            line-height: 2.4em;
+            font-size: 1.4em;
+        }
+
+        .vip-quetion {
+            width: 14px;
+            margin-left: 6px;
+            padding-top: 0;
+        }
+
+        .flex {
+            display: table;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        .flex .a {
+            display: table-cell;
+            width: 60px;
+        }
+
+        .flex .b {
+            display: table-cell;
+        }
+
+        .flex .c {
+            display: table-cell;
+            width: 30px;
+        }
+
+        .arrowRight {
+            background: url("/resources/images/icons/common/arrow-right.png") no-repeat center right;
+            background-size: 24px 24px;
+        }
+
+        #menu {
+            padding: 0 3px;
+        }
+    </style>
+
+    <script charset="utf-8" async="" th:src="@{/js/ykx.base.js}"></script>
+</head>
+<body>
+<div id="pageHeader" style="display:">
+    <span class="lt">
+        <i class="icon iconfont">󰅮</i>
+        <a href="http://weixin.yikuaixiu.com/nav/weixin/index">返回首页</a>
+    </span>
+    <span class="center"><img class="logo" th:src="@{/images/nav_logo.png}"/></span>
+</div>
+<header class="baseinfo">
+    <figure>
+        <img id="headImg" th:src="@{/images/headImg.png}"/>
+        <figcaption id="user_nickname" th:text="${session.realName} "></figcaption>
+        <!--<div id="logoutLink" style="text-align: center;display:;">
+            <a href="http://weixin.yikuaixiu.com/user/logout">[退出登录]</a>
+        </div>-->
+    </figure>
+    <ul>
+        <li>帐号：<a href="#"><span id="user_phoneNumber" th:text="${session.telePhoneNum}" ></span></a></li>
+        <li>
+            等级：<span id="user_levelName">普通用户</span><a href="http://weixin.yikuaixiu.com/nav/weixin/notice/vip"><img class="vip-quetion"
+                                                                                                                     th:src="@{/images/icon-wenhao-hover.png}"/></a>
+        </li>
+        <li>余额：<span id="user_balance">0.00</span> 元</li>
+    </ul>
+</header>
+<section id="menu">
+    <div class="flex" id="myinfo" data-url="/nav/weixin/my/info">
+        <span class="a iconMyInfo"></span><span class="b">我的信息</span><span class="c arrowRight"></span>
+    </div>
+    <div class="flex" data-url="/order">
+        <span class="a iconMyOrder"></span><span class="b">我的订单</span><span class="c arrowRight"></span>
+    </div>
+    <div class="flex" data-url="/user/cbb">
+        <span class="a iconMyCbbOrder"></span><span class="b">我的车保保</span><span class="c arrowRight"></span>
+    </div>
+    <div class="flex" data-url="/nav/weixin/my/coupon">
+        <span class="a iconMyCoupon"></span><span class="b">我的优惠券</span><span class="c arrowRight"></span>
+    </div>
+    <div class="flex" data-url="/nav/weixin/user/cardPack">
+        <span class="a iconVip"></span><span class="b">我的卡包</span><span class="c arrowRight"></span>
+    </div>
+
+    <div class="flex" data-url="/nav/weixin/svc/aftersale">
+        <span class="a iconAfterSale"></span><span class="b">售后支持</span><span class="c arrowRight"></span>
+    </div>
+</section>
+<script type="text/javascript" th:src="@{/js/sea.js}"></script>
+<script type="text/javascript">
+    seajs.config({
+        preload: [
+            Function.prototype.bind ? '' : 'es5-safe',
+            this.JSON ? '' : 'json'
+        ],
+        alias: {
+            'jquery': 'jsLib/jquery/jquery-1.11.1.js',
+            'fastclick': 'jsLib/fastclick.js',
+            'reactjs': 'jsLib/react/react-0.13.3.min.js',
+            'qiniu': 'jsLib/qiniu/qiniu.js',
+            'jweixin': 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js',
+            'icons': 'js/icon.js',
+            'ykx': 'js/ykx.base.js?v=6',
+            'ajaxloading': 'js/ajaxloading.js',
+            'uc': 'user/uc.js?v=3',
+            'message': 'js/message',
+            'clue': '/weixin/svc/clue.js?1'
+        },
+        paths: {
+            'js': '/js',
+            'jsLib': '/js'
+        },
+        debug: true,
+        base: '/weixin',
+        charset: 'utf-8'
+    });
+</script>
+<script type="text/javascript" charset="utf-8">
+    seajs.use(['jquery'], function ($) {
+        $(document).ready(function () {
+            var MsgDialog = {
+                alert: function (msg, callback) {
+                    alert(msg);
+                    if (typeof callback == 'function') {
+                        callback();
+                    }
+                }
+            };
+            $("#menu .flex").each(function (index, item) {
+                var isOk = true;
+                $(item).click(function () {
+                    if (!isOk) {
+                        MsgDialog.alert("请先设置您的个人信息", function () {
+                            document.location.href = '/nav/weixin/my/info';
+                            return false;
+                        });
+                        return;
+                    }
+                    var url = $(this).attr("data-url");
+                    if (url) {
+                        document.location.href = url;
+                    }
+                })
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
