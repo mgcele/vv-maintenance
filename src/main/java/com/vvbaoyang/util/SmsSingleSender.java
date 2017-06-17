@@ -5,11 +5,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.List;
 
 // org.json 第三方库请自行下载编译，或者在以下链接下载使用 jdk 1.7 的版本
 // http://share.weiyun.com/630a8c65e9fd497f3687b3546d0b839e
 import org.json.JSONObject;
+import org.springframework.stereotype.Component;
 
+@SuppressWarnings("ALL")
 public class SmsSingleSender {
     int appid;
     String appkey;
@@ -17,9 +20,9 @@ public class SmsSingleSender {
     
     SmsSenderUtil util = new SmsSenderUtil();
     
-    public SmsSingleSender(int appid, String appkey) throws Exception {
-        this.appid = appid;
-        this.appkey = appkey;
+    public SmsSingleSender() throws Exception {
+        this.appid = 1400033060;
+        this.appkey = "22d4002d87acf76041ce7bda587f07fb ";
     }
     
     /**
@@ -34,7 +37,7 @@ public class SmsSingleSender {
      * @return {@link}SmsSingleSenderResult
      * @throws Exception
      */
-    public SmsSingleSenderResult send(int type, String nationCode, String phoneNumber, String msg, String extend, String ext) throws Exception {
+    private SmsSingleSenderResult send(int type, String nationCode, String phoneNumber, String msg, String extend, String ext) throws Exception {
 /*
 请求包体
 {
@@ -132,7 +135,7 @@ public class SmsSingleSender {
      * @return {@link}SmsSingleSenderResult
      * @throws Exception
      */
-    public SmsSingleSenderResult sendWithParam(String nationCode, String phoneNumber, int templId, ArrayList<String> params, String sign, String extend,
+    private SmsSingleSenderResult sendWithParam(String nationCode, String phoneNumber, int templId, List<String> params, String sign, String extend,
             String ext) throws Exception {
 /*
 请求包体
@@ -223,5 +226,12 @@ public class SmsSingleSender {
         }
         
         return result;
+    }
+    
+    public void sendSms(String mobile, String code) throws Exception {
+        List<String> list = new ArrayList<>();
+        list.add(code);
+        //(String nationCode, String phoneNumber, int templId, ArrayList<String> params, String sign, String extend,String ext
+        sendWithParam("86", mobile, 24687, list, "", "", "");
     }
 }

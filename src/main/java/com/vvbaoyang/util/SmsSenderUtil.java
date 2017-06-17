@@ -5,6 +5,7 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.json.JSONArray;
@@ -92,7 +93,7 @@ class SmsSenderUtil {
         return tel;
     }
     
-    public JSONArray smsParamsToJSONArray(ArrayList<String> params) {
+    public JSONArray smsParamsToJSONArray(List<String> params) {
         JSONArray smsParams = new JSONArray();
         for (String param : params) {
             smsParams.put(param);
