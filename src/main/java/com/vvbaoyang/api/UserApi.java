@@ -3,19 +3,26 @@ package com.vvbaoyang.api;
 import com.vvbaoyang.helper.SessionHelper;
 import com.vvbaoyang.repository.CarBrandRepository;
 import com.vvbaoyang.repository.CarDisplacementRepository;
+import com.vvbaoyang.repository.CarGoodsRepository;
 import com.vvbaoyang.repository.CarModelRepository;
+import com.vvbaoyang.repository.OrderRepository;
 import com.vvbaoyang.repository.UserCodeRepository;
 import com.vvbaoyang.repository.UserRepository;
 import com.vvbaoyang.repository.model.CarBrand;
 import com.vvbaoyang.repository.model.CarDisplacement;
+import com.vvbaoyang.repository.model.CarGoods;
 import com.vvbaoyang.repository.model.CarModel;
+import com.vvbaoyang.repository.model.Order;
 import com.vvbaoyang.repository.model.User;
 import com.vvbaoyang.repository.model.UserCode;
 import com.vvbaoyang.util.RandomUtil;
 import com.vvbaoyang.util.SmsSingleSender;
+import com.vvbaoyang.vo.AbstractGeneResponse;
 import com.vvbaoyang.vo.CarBrandResponseVO;
 import com.vvbaoyang.vo.CarDisplacementResponseVO;
+import com.vvbaoyang.vo.CarGoodsResponseVO;
 import com.vvbaoyang.vo.CarModelResponseVO;
+import com.vvbaoyang.vo.OrderRequestVO;
 import com.vvbaoyang.vo.RegisterRequestVO;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -62,6 +69,39 @@ public class UserApi {
     
     @Autowired
     private CarDisplacementRepository carDisplacementRepository;
+    
+    @Autowired
+    private CarGoodsRepository carGoodsRepository;
+    
+    @Autowired
+    private OrderRepository orderRepository;
+    
+    @PostMapping("/order")
+    public AbstractGeneResponse addOrder(HttpSession session, @RequestBody OrderRequestVO orderRequestVO) {
+    
+        Order order = new Order();
+        BeanUtils.copyProperties(orderRequestVO, order);
+        String openId = (String) session.getAttribute(SessionHelper.getSessionIdForOpenId());
+        order.setOpenId(openId);
+        orderRepository.save(order);
+        return new AbstractGeneResponse();
+        
+    }
+    
+    @GetMapping("/carGoods")
+    public List<CarGoodsResponseVO> queryCarGoods(){
+        List<CarGoods> list = carGoodsRepository.findAll();
+        List<CarGoodsResponseVO> tempList = new ArrayList<>();
+        if(CollectionUtils.isEmpty(list)){
+            return tempList;
+        }
+        for (CarGoods carGoods : list) {
+            CarGoodsResponseVO temp = new CarGoodsResponseVO();
+            BeanUtils.copyProperties(carGoods, temp);
+            tempList.add(temp);
+        }
+        return tempList;
+    }
     
     @GetMapping("/carDisplacement/{did}")
     public CarDisplacementResponseVO queryCarDisplacement(@PathVariable(value = "did") Integer did){

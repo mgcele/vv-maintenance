@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.vvbaoyang.specification.IGeneJsonable;
-import com.vvbaoyang.vo.JsonRestResponseVo;
+import com.vvbaoyang.vo.JsonRestResponseVO;
 
 import java.io.IOException;
 
@@ -25,7 +25,7 @@ public class GeneBaseRestResponseSerializer extends JsonSerializer<IGeneJsonable
         
         JSONObject dataJsonObj = JSON.parseObject(dataJsonStr);
         
-        JsonRestResponseVo obj = new JsonRestResponseVo().success(dataJsonObj);
+        JsonRestResponseVO obj = new JsonRestResponseVO().success(dataJsonObj);
         jgen.writeObject(obj);
         
     }
