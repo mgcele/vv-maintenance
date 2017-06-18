@@ -12,7 +12,8 @@
                 return false;
             }
 
-            $.get("carType.json",
+
+            $.get("/user/carModel/id=0",
                 function(data) {
 
                     if(data.status == 1) {

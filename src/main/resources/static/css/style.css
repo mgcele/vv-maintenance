@@ -79,14 +79,14 @@ table{ border-collapse:collapse; border-spacing:0; }
 .main{ padding:0.5em; }
 .section{ margin-top:0.5em; }
 /*缺省按钮样式*/
-button, .button{ display:inline-block; text-align:center; border:0 solid #ffd600; background-color:#ffd600; width:100%; line-height:2.6em; }
+button, .button{ display:inline-block; text-align:center; border:0 solid #90AA2D; background-color:#90AA2D; width:100%; line-height:2.6em; }
 input[type=password], input[type=text], input[type=tel]{ border:1px solid #ccc; font-size:1em; width:100%; }
 /*m站页面顶部的导航条*/
 .row-layout{ position:relative; width:100%; }
 .row-layout .lt{ position:absolute; left:0; color:#303232;}
 .row-layout .rt{ position:absolute; right:0; color:#303232;}
 .row-layout .lt a, .rt a{font-size:14px;color:#303232;}
-.nav{ color:#303232; height:40px; line-height:40px; text-align:center; border-bottom:1px solid #d9d9d9; background-color:#FFD93A; }
+.nav{ color:#303232; height:40px; line-height:40px; text-align:center; border-bottom:1px solid #d9d9d9; background-color:#90AA2D; }
 .nav .title{ font-size:1.2em; font-weight:bold; }
 .nav .center{width:126px;height:100%;display:inline-block;text-align:center;}
 .nav .logo{width:60%;padding-top: 5px;}
@@ -95,7 +95,7 @@ input[type=password], input[type=text], input[type=tel]{ border:1px solid #ccc; 
 .ctrl-group li{ width:50%; display:inline-block; background:#f0f0f0; line-height:2.6em; text-align:center; white-space:nowrap; }
 .ctrl-group li:first-child{ border-radius:4px 0 0 4px; }
 .ctrl-group li:last-child{ border-radius:0 4px 4px 0; float:right; }
-.ctrl-group li.active{ background:#ffd600; }
+.ctrl-group li.active{ background:#90AA2D; }
 /*缺省圆角样式*/
 .r5{ -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
 .r3{ -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; }
