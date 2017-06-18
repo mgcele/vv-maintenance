@@ -24,18 +24,6 @@ import java.util.List;
 @ServletComponentScan
 public class Application{
     
-    public HttpMessageConverters fastJsonHttpMessageConverters() {
-        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-        List<MediaType> fastMediaTypes = new ArrayList<>();
-        fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
-        fastConverter.setFastJsonConfig(fastJsonConfig);
-        fastConverter.setSupportedMediaTypes(fastMediaTypes);
-        HttpMessageConverter<?> converter = fastConverter;
-        return new HttpMessageConverters(converter);
-    }
-    
     @Bean
     public HttpMessageConverters aa(){
         GeneCustomObjectMapper g = new GeneCustomObjectMapper();
