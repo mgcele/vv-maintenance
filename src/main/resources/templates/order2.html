@@ -1,0 +1,411 @@
+
+<!-- saved from url=(0118)http://www.car1982.com/wxshop/mobile.php?act=module&do=order&name=wecarservice&weid=3&from_user=&brand=1&seris=1&tid=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link href="./css7/style.css" rel="stylesheet" type="text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta name="format-detection" content="telephone=no"/>
+    <title>沃德诺威汽车上门养护</title>
+<script type="text/javascript" src="./js7/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//$("input[name='need'][value='0']").attr("checked",true);
+	//$("#kl_sign").attr("checked",false); 
+	$("#kt_sign").attr("checked",false); 	
+});
+</script>
+<script type="text/javascript">
+$(function(){
+	/*获取车型*/
+	var carType1=localStorage.getItem("carType1");
+	var carType2=localStorage.getItem("carType2");
+	var carType3=localStorage.getItem("carType3");
+	$("#order2Car").html(carType1+"-"+carType2+"-"+carType3);
+
+	var totalFee = serviceFee = Math.ceil(120);
+	$("input:checked").each(function(){
+		sign = $(this).attr("sign");
+		switch(sign){
+			case "jy":
+				eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+				if(parseFloat($("#sl").val()) > 4)
+				{
+					totalFee += Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
+				}
+				totalFee += Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+				break;
+			case "jl":
+				totalFee += Math.ceil(parseFloat($("#jl option:selected").attr("price")));
+				break;
+			case "kl":
+				totalFee += parseFloat($("#kl option:selected").attr("price"));
+				break;
+			case "kt":
+				totalFee += parseFloat($("#kt option:selected").attr("price"));
+				break;
+		}
+	});
+	$("#total_price").text(totalFee);
+	$("input[name='price']").attr('value',totalFee);
+	
+	$("select").change(function(){
+		var sid = $(this).attr("id");
+		current_price = parseFloat($("#"+sid+" option:selected").attr("price"));
+		if(sid != 'kt'){
+			if(sid == 'jy'){
+				var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+				var current_discount_price = 0;
+				if(parseFloat($("#sl").val()) > 4)
+				{
+					current_discount_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
+				}
+				current_discount_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+			}else{
+				current_discount_price = Math.ceil(current_price);
+			}
+		}else{
+			if(sid == 'jy'){
+				var current_discount_price = 0;
+				var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+				if(parseFloat($("#sl").val()) > 4)
+				{
+					current_discount_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit + Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+				}
+				current_discount_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+			}else{
+				current_discount_price = Math.ceil(current_price);
+			}
+		}
+		
+		$("#p_"+sid).text("￥"+current_discount_price);
+		$("#p_"+sid+"_o").html("<del>￥"+current_price+"</del>");
+		if($("#jy_sign").attr("checked")){
+			var current_jy_price = 0;
+			var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+			if(parseFloat($("#sl").val()) > 4)
+			{
+				current_jy_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
+			}
+			current_jy_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+		}else{
+			var current_jy_price = 0;
+			var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+			if(parseFloat($("#sl").val()) > 4)
+			{
+				current_jy_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
+			}
+			current_jy_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+		}
+		
+		if($("#jl_sign").attr("checked")){
+			current_jl_price = Math.ceil(parseFloat($("#jl option:selected").attr("price")));
+		}else{
+			current_jl_price = 0;
+		}
+		
+		if($("#kl_sign").attr("checked")){
+			current_kl_price = Math.ceil(parseFloat($("#kl option:selected").attr("price")));
+		}else{
+			current_kl_price = 0;
+		}
+		
+		if($("#kt_sign").attr("checked")){
+			current_kt_price = Math.ceil(parseFloat($("#kt option:selected").attr("price")));
+		}else{
+			current_kt_price = 0;
+		}
+		var totalFee = serviceFee = Math.ceil(120);
+		totalFee += current_jy_price; 
+		totalFee += current_jl_price;
+		totalFee += current_kl_price;
+		totalFee += current_kt_price;
+		$("#total_price").text(totalFee);
+		$("input[name='price']").attr('value',totalFee);
+	});
+	
+	$("input:checkbox[name!='auto_parts']").change(function(){
+		var totalFee = parseFloat($("#total_price").text());
+		var sign = $(this).attr("sign");
+		if($(this).attr("checked")){
+			$("input:checkbox[name='auto_parts']").attr("checked", false);
+			if(sign != 'kt'){
+				totalFee += Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+			}else{
+				totalFee += Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+			}
+			$("#total_price").text(totalFee);
+			$("input[name='price']").attr('value',totalFee);
+		}else{
+			if(sign != 'kt'){
+				totalFee = totalFee - Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+			}
+			else{
+				totalFee = totalFee - Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+			}
+			$("#total_price").text(totalFee);
+			$("input[name='price']").attr('value',totalFee);
+		}  
+	});
+	$("#auto_parts").click(function(){
+		if($("#auto_parts").attr("checked")){
+			$("#jy_sign").attr("checked", false);
+			$("#jl_sign").attr("checked", false);
+			$("#kl_sign").attr("checked", false);
+			$("#kt_sign").attr("checked", false);
+			$("#total_price").text(serviceFee);
+			$("input[name='price']").attr('value',serviceFee);
+		}else{
+			
+			if($("input[name='need'][value='0']").attr("checked")){//alert(1);
+				$("#jy_sign").attr("checked", true);
+				$("#jl_sign").attr("checked", true);
+			}else{
+				$("#jy_sign").attr("checked", true);
+				$("#jl_sign").attr("checked", true);
+				$("#kl_sign").attr("checked", true);
+				$("#kt_sign").attr("checked", true);
+			}
+			var totalFee = serviceFee = Math.ceil(120);
+			$("input:checked").each(function(){
+				sign = $(this).attr("sign");
+				switch(sign){
+					case "jy":
+						eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+						if(parseFloat($("#sl").val()) > 4)
+						{
+							totalFee += Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
+						}
+						totalFee += Math.ceil(1.0*parseFloat($("#jy option:selected").attr("price")));
+						break;
+					case "jl":
+						totalFee += Math.ceil(1.0*parseFloat($("#jl option:selected").attr("price")));
+						break;
+					case "kl":
+						totalFee += Math.ceil(1.0*parseFloat($("#kl option:selected").attr("price")));
+						break;
+					case "kt":
+						totalFee += Math.ceil(1.0*parseFloat($("#kt option:selected").attr("price")));
+						break;
+				}
+			});			
+			$("#total_price").text(totalFee);
+			$("input[name='price']").attr('value',totalFee);
+		}
+	});
+	
+	$("input[name='need']").click(function(){
+		if($("input[name='need'][value='0']").attr("checked")){
+			$("#jy_sign").attr("checked", true);
+			$("#jl_sign").attr("checked", true);
+			$("#kl_sign").attr("checked", false);
+			$("#kt_sign").attr("checked", false);
+			$("#auto_parts").attr("checked", false);
+		}else if($("input[name='need'][value='1']").attr("checked")){
+			$("#jy_sign").attr("checked", true);
+			$("#jl_sign").attr("checked", true);
+			$("#kl_sign").attr("checked", true);
+			$("#kt_sign").attr("checked", true);
+			$("#auto_parts").attr("checked", false);
+		}
+		var totalFee = serviceFee = Math.ceil(120);
+		$("input:checked").each(function(){
+			sign = $(this).attr("sign");
+			switch(sign){
+				case "jy":
+					eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
+					if(parseFloat($("#sl").val()) > 4)
+					{
+						totalFee += Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
+					}
+					totalFee += parseFloat($("#jy option:selected").attr("price"));
+					break;
+				case "jl":
+					totalFee += parseFloat($("#jl option:selected").attr("price"));
+					break;
+				case "kl":
+					totalFee += parseFloat($("#kl option:selected").attr("price"));
+					break;
+				case "kt":
+					totalFee += Math.ceil(0.6*parseFloat($("#kt option:selected").attr("price")));
+					break;
+			}
+		});
+		$("#total_price").text(totalFee);
+		$("input[name='price']").attr('value',totalFee);		
+	})
+			/*点击立即预定*/
+		$("#order2CarType").click(function(){
+				window.location.href = "order3.html";
+			});
+		});
+
+</script>
+<style>
+	input,button,select,textarea{outline:none}
+	textarea{resize:none} 
+</style>
+</head>
+
+<body style="background:#f6f6f6;">
+
+<header style="height:10px;">
+
+</header>
+   
+   <div class="logo">
+       <img src="./images7/nav_logo.jpg" style="width:60px;"/>
+      <nav>
+
+      </nav>
+   </div>
+   <div class=" h10px"></div>
+   <strong class="service_tag">
+      <span>预订服务</span>&gt;
+      <span>上门保养</span>&gt;
+      <span id="order2Car"></span>
+   </strong>
+   <form action="#" method="post">  
+   <div class="service_1">
+
+      <div class=" h10px"></div> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:12px;border-bottom:#DDDDDD 1px solid;">
+         <thead>
+
+			 <tr>
+			 	<td align="left" style="font-size:15px;width:30%;height:30px;">
+					总价:￥<span id="total_price">268</span>&nbsp;
+						<input type="hidden" name="sname" id="sname" value="北汽-北汽E系列-1.3L"/>
+						<input type="hidden" name="price" id="price" value="268"/>
+						<input type="hidden" name="shuliang" id="sl" value="4"/>
+						<input type="hidden" name="typeid" id="tid" value="1"/>
+
+				</td>
+                <td>
+                </td>
+             </tr>
+         </thead>
+         <tbody>
+         <tr style="background:#f6f6f6;border-bottom:#DDDDDD 1px solid">
+         	 <td>所含项目</td>
+            <td><span class="c_red"></span></td>
+         </tr>
+         
+         <tr>
+            <td style="padding-top:25px;">
+               <input type="checkbox" name="jy_sign" value="1" id="jy_sign" sign="jy" checked="checked"/>机油  4(L)            </td>
+            <td style="padding-top:25px;">
+                <select name="jy" id="jy" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
+					<option value="1" price="148" data-unit="60">嘉实多金嘉护(10W-40)(148元)/4L</option>
+					<option value="2" price="268" data-unit="78">嘉实多磁护(5W-40)(268元)/4L</option>
+					<option value="4" price="368" data-unit="118">嘉实多极护(0W-40)(368元)/4L</option>
+					<option value="21" price="472" data-unit="118">美孚1号金(0W-40)(472元)/4L</option>
+					<option value="22" price="338" data-unit="108">美孚1号银(5W-30)(338元)/4L</option>
+					<option value="11" price="338" data-unit="118">壳牌灰(5W-40)(338元)/4L</option>
+					<option value="12" price="248" data-unit="98">壳牌蓝(5W-40)(248元)/4L</option>
+                </select>
+               <span id="p_jy">￥148
+                <!-- <a href='http://www.baidu.com' style="color:blue;">查看</a> -->
+               </span>
+            </td>
+         </tr>
+         <tr style="padding-top:15px;">
+            <td>
+               <input type="checkbox" name="jl_sign" value="1" id="jl_sign" sign="jl" checked="checked"/>机滤
+            </td>
+            <td>
+               <select name="jl" id="jl" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
+               		                		 	 <option value="0" price="0">请与客服咨询</option>
+               		                </select>
+                               		 	<span id="p_jl">￥0</span>
+               		             </td>
+         </tr>
+         <tr style="padding-top:15px;">
+            <td>
+               <input type="checkbox" name="kl_sign" value="1" id="kl_sign" sign="kl" checked="checked"/>空气滤清器
+            </td>
+            <td>
+               <select name="kl" id="kl" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
+               		               			<option value="0" price="0">请与客服咨询</option>
+               		               </select>
+                              		<span id="p_kl">￥0</span>
+                           </td>
+         </tr>
+         <tr style="padding-top:15px;">
+            <td>
+              <input type="checkbox" name="kt_sign" value="1" id="kt_sign" sign="kt"/>空调滤清器
+            </td>
+            <td>
+               <select name="kt" id="kt" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
+				   <option value="0" price="0">请与客服咨询</option>
+               </select>
+               <span id="p_kt">￥0</span>
+            </td>
+         </tr>
+         <tr>
+            <td colspan="2" style="padding-top:15px;padding-bottom:15px;">
+               <input type="checkbox" id="service" name="service" value="120" checked="checked" onclick="return false;" disabled=""/>
+               	服务费<span>120</span>元&nbsp;
+            </td>
+         </tr>
+         <tr style="padding-top:15px;">
+            <td colspan="2">
+               <input type="checkbox" name="auto_parts" id="auto_parts" value="1"/>
+               已有配件，仅购买上门服务
+            </td>
+         </tr>
+         <tr style="line-height:40px;">
+           <td></td>
+            <td style="font-size:15px;">
+               现支持-现金支付，刷卡支付
+            </td>
+         </tr>
+         </tbody>
+      </table>
+      <div style="text-align:center;margin-top:24px;">
+      	 <input type="hidden" name="autoId" value="34"/>
+         <button class="disbtn" style="-webkit-appearance:none;
+	outline:none;background:#90AA2D;padding:10px 0px;" type="button" id="order2CarType"  value="">立即预定</button>
+      </div>
+   </div>
+   </form>
+    <div class="h20px"></div>
+		<div class="footer_top"> 
+         <ul>
+            <li style="visibility:hidden;width:20%;height:10px;">
+               <span>100</span>
+            </li>
+            <li style="border:none;width:60%;font-size:15px;height:10px;">
+               点击&nbsp;&nbsp;<a href="tel:400-150-1982">0731-8451-5911</a>
+            </li>
+            <li style="visibility:hidden;width:20%;height:10px;">
+               <span>365</span>
+            </li>
+            <div class="clear"></div>
+         </ul>
+    </div>
+      
+   <footer style="background-color:#dadadc;">
+      <div class="main">
+         <div class="top">
+            <dl style="width:100%;">
+               <dt>
+                   <img src="./images7/weixin.jpg" width="110"/>
+               </dt>
+               <dd>扫一扫</dd>
+               <dd>关注[沃德诺威]官方微信</dd>
+            </dl>
+            <div class="clear"></div>
+         </div>
+         <div class="bottom" style="color:919192;">
+            Copyright ©2017 沃德诺威 All Rights Reserved
+
+         </div>
+      </div>
+   </footer>
+</body>
+<script>
+
+
+
+</script>
+</html>
