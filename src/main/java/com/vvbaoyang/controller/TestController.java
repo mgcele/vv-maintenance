@@ -53,5 +53,12 @@ public class TestController {
         logger.info("First to try thymeleaf");
         return "login";
     }
+
+    @RequestMapping(value = "/test/model", method = RequestMethod.GET)
+    public String testmodel(){
+        logger.info("/testmodel");
+        return "[{\"imgUrl\": null,\"id\": \"339\",\"parentId\": \"1\",\"name\": \"(豪华版)更换机油机滤\",\"price\":\"￥417\"},{\"imgUrl\": null,\"id\": \"323\",\"parentId\": \"1\",\"name\": \"(标准版)更换机油机滤\",\"price\":\"￥339\"}]";
+        // return "{\"type\":\"info\",\"message\":\"123456\"}";
+    }
     
 }
