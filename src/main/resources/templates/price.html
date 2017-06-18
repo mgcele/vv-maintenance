@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="保养 | 上门汽车保养 | " />
+    <meta name="description" content="保养上门汽车保养,1对1上门服务,正品配件
+懒人汽车保养,价格透明,现在预约即送300万保养责任险" />
+    <link href="css8/newcss.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css8/clear.css?v=7d80fd9537" />
+    <link rel="stylesheet" type="text/css" href="css8/common.css?v=18ea028849" />
+
+
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+
+        /*導航下面的圖*/
+        .banner{
+            width: 100%;
+            margin: 0 auto;
+            height: 240px;
+            background: url(images8/qietu/980X200-beiyong.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .box{
+            width: 900px;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 10px 0px;
+        }
+        .box dl{
+            width: 100%;
+            overflow: hidden;
+            text-align: center;
+            padding: 5px 0px 5px 46%;
+            padding-left: 46%;
+        }
+        .box dl dt{
+            margin-top: 5px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            float: left;
+            transform: rotate(-45deg);
+            border: 1px solid #329FC7;
+            text-align: center;
+        }
+        .box dl dt span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            text-align: center;
+            transform: rotate(45deg);
+        }
+        .box dl dd{
+            float: left;
+            color: #329FC7;
+            margin-left: 20px;
+            font-size: 24px;
+        }
+
+        .box1-left p{
+            width: 100%;
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .box1-right img{
+            width: 100%;
+            height: 200px;
+        }
+
+
+        .box2-right p{
+            width: 100%;
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        .box2-left img{
+            width: 100%;
+        }
+        /*二维码*/
+        #weixin{
+            width: 80%;
+            min-width: 900px;
+            margin: 0 auto;
+        }
+        .foot-image{
+            width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            text-align: center;
+        }
+        .foot-image dl{
+            background: #ccc;
+            text-align: center;
+            margin: 0px 20px;
+            padding: 5px 0px;
+            float: left;
+            width: 24%;
+        }
+        .foot-image dl dd{
+            margin-top: 3px;
+        }
+
+        /*表格的css*/
+        .table{
+            width: 70%;
+            min-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0px;
+        }
+        .table h2{
+            font-weight: normal;
+            font-size: 20px;
+            height: 30px;
+            line-height: 30px;
+        }
+        .table table{
+            width: 100%;
+            height: 200px;
+            text-align: center;
+            border-color: #2294d4;
+        }
+        .table td{
+            width: 25%;
+        }
+
+        .pricedes
+        {
+            width:70%;
+            min-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0px;
+
+        }
+        .pricedes p
+        {
+            font-size: 16px;
+        }
+        .text
+        {
+         text-align: left;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+
+
+    <div class="logo">
+        <dl>
+            <dt style="float: left;"><img src="images8/logo.jpg" alt="logo"/></dt>
+            <dd style="float: left;font-size: 32px;margin-top: 80px;">湖南沃德诺威信息科技有限公司</dd>
+        </dl>
+    </div>
+
+</div>
+<div class="tnav2" id="slideNav2"><div class="tnav2inner mw">
+    <ul class="tnav2list">
+        <li ><a href="index.html" class="dt">首&ensp;页</a></li>
+        <li class="gt"></li>
+
+        <li><a href="service.html" class="dt">服务内容</a>
+
+        </li>
+
+        <li class="gt"></li>
+        <li><a href="advantage.html" class="dt">公司优势</a>
+            <div class="tnav2_sec">
+                <a href="advantage.html">公司优势</a>
+
+                <a href="qualifications.html">资质荣誉</a>
+
+            </div>
+        </li>
+        <li ><a href="control.html" class="dt">服务流程</a></li>
+        <li class="gt"></li>
+        <li class="current_nav"><a href="price.html" class="dt">保养报价</a></li>
+        <li class="gt"></li>
+        <li><a href="contact.html" class="dt">联系我们</a></li>
+    </ul>
+    <i class="tnavline2" id="slideNavLine2"></i>
+</div></div>
+
+
+<div style="width: 100%;height: 50px;">
+
+</div>
+
+
+<div class="main_wrapper">
+    <div class="choosecar_wrapper">
+        <p class="wrapper_title">按照步骤选择或输入查询您爱车的保养报价</p>
+        <input type="hidden" value="1060002" id="ss"/>
+        <form id="search_form" class="search_form">
+            <input type="text" placeholder="输入您的爱车型号进行模糊匹配" class="search_input"/>
+            <a href="javascript:;" class="del_input">×</a>
+            <input type="hidden" value="0" id="search_count"/>
+            <input type="submit" value="查询" class="search_btn"/>
+            <ul></ul>
+        </form>
+        <div class="choosecar_main">
+            <div class="choosecar_items">
+                <p class="choosecar_title ft_green">选择品牌</p>
+                <div class="choosecar_box" id="show_brand">
+                    <input type="text" placeholder="选择或输入您的品牌" id="brand_search" class="mini_search"/>
+                    <div class="content first_step mCustomScrollbar _mCS_1"><div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" tabindex="0"><div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+
+
+                        <p class="car_first">A</p>
+
+                        <a class="car_list A" href="javascript:;" id="272" data-pinyin="ao di" data-img="aodi.png">奥迪</a>
+
+
+
+
+                        <p class="car_first">B</p>
+
+                        <a class="car_list B" href="javascript:;" id="270" data-pinyin="bao ma" data-img="baoma.png">宝马</a>
+
+                        <a class="car_list B" href="javascript:;" id="246" data-pinyin="bao shi jie" data-img="baoshijie.png">保时捷</a>
+
+                        <a class="car_list B" href="javascript:;" id="282" data-pinyin="bei jing qi che" data-img="beijingqiche.png">北京汽车</a>
+
+                        <a class="car_list B" href="javascript:;" id="247" data-pinyin="ben chi" data-img="benchi.png">奔驰</a>
+
+                        <a class="car_list B" href="javascript:;" id="208" data-pinyin="ben chi AMG" data-img="benchi.png">奔驰AMG</a>
+
+                        <a class="car_list B" href="javascript:;" id="228" data-pinyin="ben tian" data-img="bentian.png">本田</a>
+
+                        <a class="car_list B" href="javascript:;" id="238" data-pinyin="bi ya di" data-img="biyadi.png">比亚迪</a>
+
+                        <a class="car_list B" href="javascript:;" id="245" data-pinyin="biao zhi" data-img="biaozhi.png">标致</a>
+
+                        <a class="car_list B" href="javascript:;" id="253" data-pinyin="bie ke" data-img="bieke.png">别克</a>
+
+
+
+
+                        <p class="car_first">C</p>
+
+                        <a class="car_list C" href="javascript:;" id="263" data-pinyin="chang an" data-img="changan.png">长安</a>
+
+                        <a class="car_list C" href="javascript:;" id="234" data-pinyin="chang cheng" data-img="changcheng.png">长城</a>
+
+
+
+
+                        <p class="car_first">D</p>
+
+                        <a class="car_list D" href="javascript:;" id="249" data-pinyin="da zhong" data-img="dazhong.png">大众</a>
+
+                        <a class="car_list D" href="javascript:;" id="251" data-pinyin="dao qi" data-img="daoqi.png">道奇</a>
+
+                        <a class="car_list D" href="javascript:;" id="219" data-pinyin="dong feng feng shen" data-img="fengshen.png">东风风神</a>
+
+                        <a class="car_list D" href="javascript:;" id="220" data-pinyin="dong feng feng xing" data-img="fengxing.png">东风风行</a>
+
+                        <a class="car_list D" href="javascript:;" id="286" data-pinyin="dong feng xiao kang" data-img="dongfengxiaokang.png">东风小康</a>
+
+                        <a class="car_list D" href="javascript:;" id="204" data-pinyin="dong feng yu long na zhi jie" data-img="nazhijie.png">东风裕隆纳智捷</a>
+
+                        <a class="car_list D" href="javascript:;" id="226" data-pinyin="dong nan" data-img="dongnan.png">东南</a>
+
+
+
+
+                        <p class="car_first">E</p>
+
+                        <a class="car_list E" href="javascript:;" id="1457" data-pinyin="e bao yang" data-img="">e保养</a>
+
+
+
+
+                        <p class="car_first">F</p>
+
+                        <a class="car_list F" href="javascript:;" id="244" data-pinyin="fei ya te" data-img="feiyate.png">菲亚特</a>
+
+                        <a class="car_list F" href="javascript:;" id="232" data-pinyin="feng tian" data-img="fengtian.png">丰田</a>
+
+                        <a class="car_list F" href="javascript:;" id="256" data-pinyin="fu te" data-img="fute.png">福特</a>
+
+                        <a class="car_list F" href="javascript:;" id="214" data-pinyin="fu tian" data-img="futian.png">福田</a>
+
+
+
+
+                        <p class="car_first">G</p>
+
+                        <a class="car_list G" href="javascript:;" id="206" data-pinyin="GMC" data-img="gmc.png">GMC</a>
+
+                        <a class="car_list G" href="javascript:;" id="258" data-pinyin="guang qi chang feng" data-img="changfeng.png">广汽长丰</a>
+
+                        <a class="car_list G" href="javascript:;" id="213" data-pinyin="guang qi chuan qi" data-img="chuanqi.png">广汽传祺</a>
+
+
+
+
+                        <p class="car_first">H</p>
+
+                        <a class="car_list H" href="javascript:;" id="239" data-pinyin="ha fei" data-img="hafei.png">哈飞</a>
+
+                        <a class="car_list H" href="javascript:;" id="231" data-pinyin="hai ma" data-img="haima.png">海马</a>
+
+                        <a class="car_list H" href="javascript:;" id="224" data-pinyin="han ma" data-img="hanma.png">悍马</a>
+
+                        <a class="car_list H" href="javascript:;" id="221" data-pinyin="hua chen jin bei" data-img="jinbei.png">华晨金杯</a>
+
+                        <a class="car_list H" href="javascript:;" id="209" data-pinyin="hua chen zhong hua" data-img="zhonghua.png">华晨中华</a>
+
+                        <a class="car_list H" href="javascript:;" id="284" data-pinyin="hua pu" data-img="huapu.png">华普</a>
+
+                        <a class="car_list H" href="javascript:;" id="225" data-pinyin="hua tai" data-img="huatai.png">华泰</a>
+
+                        <a class="car_list H" href="javascript:;" id="287" data-pinyin="huang hai" data-img="huanghai.png">黄海</a>
+
+                        <a class="car_list H" href="javascript:;" id="211" data-pinyin="hui zhong" data-img="huizhong.png">汇众</a>
+
+
+
+
+
+
+                        <p class="car_first">J</p>
+
+                        <a class="car_list J" href="javascript:;" id="262" data-pinyin="ji li" data-img="jili.png">吉利</a>
+
+                        <a class="car_list J" href="javascript:;" id="241" data-pinyin="ji li di hao" data-img="jili.png">吉利帝豪</a>
+
+                        <a class="car_list J" href="javascript:;" id="261" data-pinyin="ji li quan qiu ying" data-img="jili.png">吉利全球鹰</a>
+
+                        <a class="car_list J" href="javascript:;" id="240" data-pinyin="ji li ying lun" data-img="jili.png">吉利英伦</a>
+
+                        <a class="car_list J" href="javascript:;" id="275" data-pinyin="ji pu" data-img="jipu.png">吉普</a>
+
+                        <a class="car_list J" href="javascript:;" id="242" data-pinyin="jiang huai" data-img="jianghuai.png">江淮</a>
+
+                        <a class="car_list J" href="javascript:;" id="259" data-pinyin="jiang ling qi che" data-img="jiangling.png">江铃汽车</a>
+
+                        <a class="car_list J" href="javascript:;" id="269" data-pinyin="jie bao" data-img="jiebao.png">捷豹</a>
+
+
+
+
+                        <p class="car_first">K</p>
+
+                        <a class="car_list K" href="javascript:;" id="276" data-pinyin="kai di la ke" data-img="kaidilake.png">凯迪拉克</a>
+
+                        <a class="car_list K" href="javascript:;" id="252" data-pinyin="ke lai si le" data-img="kelaisile.png">克莱斯勒</a>
+
+
+
+
+                        <p class="car_first">L</p>
+
+                        <a class="car_list L" href="javascript:;" id="230" data-pinyin="lei ke sa si" data-img="leikesasi.png">雷克萨斯</a>
+
+                        <a class="car_list L" href="javascript:;" id="266" data-pinyin="lei nuo" data-img="leinuo.png">雷诺</a>
+
+                        <a class="car_list L" href="javascript:;" id="233" data-pinyin="li fan" data-img="lifan.png">力帆</a>
+
+                        <a class="car_list L" href="javascript:;" id="218" data-pinyin="li nian" data-img="linian.png">理念</a>
+
+                        <a class="car_list L" href="javascript:;" id="235" data-pinyin="lian hua" data-img="lianhua.png">莲花</a>
+
+                        <a class="car_list L" href="javascript:;" id="205" data-pinyin="lin ken" data-img="linken.png">林肯</a>
+
+                        <a class="car_list L" href="javascript:;" id="278" data-pinyin="ling mu" data-img="lingmu.png">铃木</a>
+
+                        <a class="car_list L" href="javascript:;" id="215" data-pinyin="lu feng" data-img="lufeng.png">陆风</a>
+
+                        <a class="car_list L" href="javascript:;" id="273" data-pinyin="lu hu" data-img="luhu.png">路虎</a>
+
+                        <a class="car_list L" href="javascript:;" id="212" data-pinyin="luo fu" data-img="luofu.png">罗孚</a>
+
+
+
+
+                        <p class="car_first">M</p>
+
+                        <a class="car_list M" href="javascript:;" id="227" data-pinyin="ma zi da" data-img="mazida.png">马自达</a>
+
+                        <a class="car_list M" href="javascript:;" id="236" data-pinyin="mi ni" data-img="mini.png">迷你</a>
+
+                        <a class="car_list M" href="javascript:;" id="274" data-pinyin="ming jue" data-img="mingjue.png">名爵</a>
+
+
+
+
+
+
+                        <p class="car_first">O</p>
+
+                        <a class="car_list O" href="javascript:;" id="267" data-pinyin="ou bao" data-img="oubao.png">欧宝</a>
+
+                        <a class="car_list O" href="javascript:;" id="280" data-pinyin="ou ge" data-img="ouge.png">讴歌</a>
+
+
+
+
+
+
+                        <p class="car_first">Q</p>
+
+                        <a class="car_list Q" href="javascript:;" id="265" data-pinyin="qi rui" data-img="qirui.png">奇瑞</a>
+
+                        <a class="car_list Q" href="javascript:;" id="257" data-pinyin="qi rui rui qi" data-img="qirui.png">奇瑞瑞麒</a>
+
+                        <a class="car_list Q" href="javascript:;" id="264" data-pinyin="qi rui wei lin" data-img="qirui.png">奇瑞威麟</a>
+
+                        <a class="car_list Q" href="javascript:;" id="277" data-pinyin="qi ya" data-img="qiya.png">起亚</a>
+
+
+
+
+                        <p class="car_first">R</p>
+
+                        <a class="car_list R" href="javascript:;" id="229" data-pinyin="ri chan" data-img="richan.png">日产</a>
+
+                        <a class="car_list R" href="javascript:;" id="250" data-pinyin="rong wei" data-img="rongwei.png">荣威</a>
+
+
+
+
+                        <p class="car_first">S</p>
+
+                        <a class="car_list S" href="javascript:;" id="243" data-pinyin="sa bo" data-img="sabo.png">萨博</a>
+
+                        <a class="car_list S" href="javascript:;" id="279" data-pinyin="san ling" data-img="sanling.png">三菱</a>
+
+                        <a class="car_list S" href="javascript:;" id="222" data-pinyin="shang qi tong yong wu ling" data-img="wuling.png">上汽通用五菱</a>
+
+                        <a class="car_list S" href="javascript:;" id="202" data-pinyin="shuang long" data-img="shuanglong.png">双龙</a>
+
+                        <a class="car_list S" href="javascript:;" id="255" data-pinyin="si ba lu" data-img="sibalu.png">斯巴鲁</a>
+
+                        <a class="car_list S" href="javascript:;" id="271" data-pinyin="si ke da" data-img="sikeda.png">斯柯达</a>
+
+                        <a class="car_list S" href="javascript:;" id="223" data-pinyin="Smart" data-img="jingling.png">Smart</a>
+
+
+
+
+
+
+
+
+
+
+                        <p class="car_first">W</p>
+
+                        <a class="car_list W" href="javascript:;" id="248" data-pinyin="wo er wo" data-img="woerwo.png">沃尔沃</a>
+
+
+
+
+                        <p class="car_first">X</p>
+
+                        <a class="car_list X" href="javascript:;" id="201" data-pinyin="xi ya te" data-img="xiyate.png">西亚特</a>
+
+                        <a class="car_list X" href="javascript:;" id="254" data-pinyin="xian dai" data-img="xiandai.png">现代</a>
+
+                        <a class="car_list X" href="javascript:;" id="237" data-pinyin="xue fu lan" data-img="xuefulan.png">雪佛兰</a>
+
+                        <a class="car_list X" href="javascript:;" id="268" data-pinyin="xue tie long" data-img="xuetielong.png">雪铁龙</a>
+
+
+
+
+                        <p class="car_first">Y</p>
+
+                        <a class="car_list Y" href="javascript:;" id="210" data-pinyin="yi qi ben teng" data-img="yiqi.png">一汽奔腾</a>
+
+                        <a class="car_list Y" href="javascript:;" id="216" data-pinyin="yi qi hong qi" data-img="yiqi.png">一汽红旗</a>
+
+                        <a class="car_list Y" href="javascript:;" id="217" data-pinyin="yi qi ji lin" data-img="yiqi.png">一汽吉林</a>
+
+                        <a class="car_list Y" href="javascript:;" id="260" data-pinyin="yi qi xia li" data-img="xiali.png">一汽夏利</a>
+
+                        <a class="car_list Y" href="javascript:;" id="281" data-pinyin="ying fei ni di" data-img="yingfeinidi.png">英菲尼迪</a>
+
+
+
+
+                        <p class="car_first">Z</p>
+
+                        <a class="car_list Z" href="javascript:;" id="1375" data-pinyin="zhong tai " data-img="zhongtai.png">众泰</a>
+
+
+
+                    </div><div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; display: block; height: 18px; max-height: 215px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 30px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+                    <div class="right_letter">
+                        <a href="javascript:;" data="0">全部</a>
+
+
+                        <a href="javascript:;" data="1">A</a>
+
+
+
+                        <a href="javascript:;" data="1">B</a>
+
+
+
+                        <a href="javascript:;" data="1">C</a>
+
+
+
+                        <a href="javascript:;" data="1">D</a>
+
+
+
+                        <a href="javascript:;" data="1">E</a>
+
+
+
+                        <a href="javascript:;" data="1">F</a>
+
+
+
+                        <a href="javascript:;" data="1">G</a>
+
+
+
+                        <a href="javascript:;" data="1">H</a>
+
+
+
+
+
+                        <a href="javascript:;" data="1">J</a>
+
+
+
+                        <a href="javascript:;" data="1">K</a>
+
+
+
+                        <a href="javascript:;" data="1">L</a>
+
+
+
+                        <a href="javascript:;" data="1">M</a>
+
+
+
+
+
+                        <a href="javascript:;" data="1">O</a>
+
+
+
+
+
+                        <a href="javascript:;" data="1">Q</a>
+
+
+
+                        <a href="javascript:;" data="1">R</a>
+
+
+
+                        <a href="javascript:;" data="1">S</a>
+
+
+
+
+
+
+
+
+
+                        <a href="javascript:;" data="1">W</a>
+
+
+
+                        <a href="javascript:;" data="1">X</a>
+
+
+
+                        <a href="javascript:;" data="1">Y</a>
+
+
+
+                        <a href="javascript:;" data="1">Z</a>
+
+
+                    </div>
+                    <div id="search_brand"></div>
+                </div>
+                <div class="choosen_box" style="display: none">
+                    <img alt="上门汽车保养,就是保养"/>
+                    <p class="brand_name"></p>
+                </div>
+                <div class="static_wrapper">
+                    <span class="static_icon"></span>
+                </div>
+            </div>
+            <div class="choosecar_items">
+                <p class="choosecar_title">选择系列</p>
+                <div class="choosecar_box" style="display: none" id="show_serial">
+                    <div class="sec_step">
+                    </div>
+                </div>
+                <div class="no_choice">
+                    <div class="choose_turn"></div>
+                    <div class="choose_sorry" style="display: none"></div>
+                </div>
+                <div class="choosen_box" style="display: none">
+                    <div class="choosen_series">
+                        <p>您已选择</p>
+                        <p class="series_name"></p>
+                    </div>
+                </div>
+                <div class="static_wrapper">
+                    <span class="static_icon static_none"></span>
+                </div>
+            </div>
+            <div class="choosecar_items">
+                <p class="choosecar_title">选择车型</p>
+                <div class="choosecar_box" style="display: none" id="show_model">
+                    <div class="third_step"></div>
+                </div>
+                <div class="no_choice">
+                    <div class="choose_turn2"></div>
+                    <div class="choose_sorry2" style="display: none"></div>
+                </div>
+                <div class="choosen_box" style="display: none">
+                    <div class="choosen_model">
+                        <p class="model_name"></p>
+                        <a href="javascript:;" class="order_btn" title="点击查询">点击查询</a>
+                    </div>
+                </div>
+                <div class="static_wrapper">
+                    <span class="static_icon static_none"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div style="width: 100%;height: 20px;">
+
+</div>
+
+
+<div class="newfooter">
+    <div class="newfoot">
+        <ul>
+            <li><a href="index.html" title="公司首页">公司首页</a>|</li>
+            <li><a href="service.html" title="服务内容">服务项目</a>|</li>
+            <li><a href="advantage.html" title="公司优势">公司优势</a>|</li>
+            <li><a href="control.html" title="质量控制">服务流程</a>|</li>
+            <li><a href="price.html" title="价格体系">保养价格</a>|</li>
+            <li><a href="contact.html" title="联系我们">联系我们</a></li>
+
+        </ul>
+    </div>
+
+    <p class="tac">
+        Copyright &copy; 2017 LandaishuTranslation Service Co., Ltd All Rights Reserved.<br/>
+        湖南沃德诺威信息科技有限公司版权所有
+    </p>
+</div>
+
+
+
+<script src="js8/jquery-1.js"></script>
+    <script src="js8/jquery.js"></script>
+    <script src="js8/jquery.SuperSlide.2.1.2.js"></script>
+    <script src="js8/tool.js"></script>
+
+<script src="js8/jquery.min.js?v=d6af08c356"></script>
+<script src="js8/jquery.easing.min.js?v=e5e229bcf0"></script>
+<script type="text/javascript" src="js8/json.js?v=c9858d42fa"></script>
+<script type="text/javascript" src="js8/common.js?v=69acaf41b6"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <title>湖南沃德诺威信息科技有限公司</title>
+    <meta name="keywords" content="上门保养，上门修车，信息科技公司" />
+    <meta name="description" content="长沙汽车，上门保养，上门修车" />
+    <link href="css8/newcss.css" rel="stylesheet" type="text/css"/>
+    <link href="css8/index3.css" rel="stylesheet" type="text/css"/>
+    <script src="js8/jquery-1.7.1.min.js"></script>
+
+    <script src="js8/chosen.Jquery.js"></script>
+    <link rel="Shortcut Icon" href="images8/favicon.ico" />
+    <link href="css8/chosen.css" rel="stylesheet" type="text/css"/>
+    <script src="js8/jquery.lazyload.js"></script>
+    <script src="js8/jquery.mousewheel.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        $(function () {
+            //图片延迟加载
+            $(".img").lazyload({ effect: "fadeIn" });
+            $(document).bind("contextmenu", function (e) {
+                try {
+                    rightJian();
+                    return true;
+                } catch (e) {
+                    //return false;
+                }
+
+
+            });
+
+            if ($("[name='CityId']").html() != null) {
+                $("[name='CityId']").val($("#headSetCity").attr("cityId")).change();
+                try {
+                    $("[name='CityId']").trigger("liszt:updated");
+                } catch (e) {
+
+                }
+            }
+
+            $(".SetCity").click(function () {
+                var $this = $(this);
+
+                location.href = $this.attr("action");
+
+            });
+
+        });
+        var bmw = {
+            index: {
+                indexZhongDuan: "http://xingban.bimawen.com/",
+                indexHaoHua: "http://www.bimawen.com/",
+            },
+        }
+    </script>
+
+    <style>
+        .left {
+            float: left;
+        }
+
+        .baoYangDetails {
+            cursor: pointer;
+            position: absolute;
+            /*background-image:url("../UI/Images/index/baoyangDetailsbg.png");*/
+            /*background-color: #000;*/
+            background: rgba(0,0,0,0.7) none repeat scroll !important;
+            width: 320px;
+            height: 75px;
+
+
+            /*filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            opacity: 0.5;*/
+            display: none;
+        }
+
+        .baoYangDetails:hover .yuyue1 {
+            background-color: #FF530E;
+            color: #fff;
+        }
+
+        .baoYangDetails1 {
+            margin-top: 10px;
+            margin-left: 10px;
+            text-align: left;
+            float: left;
+        }
+
+        .baoYangTitle {
+            color: #fff;
+            font-size: 25px;
+        }
+
+        .baoYangJieShao {
+            color: #679ccf;
+            font-size: 14px;
+        }
+
+        .yuyue1 {
+            float: right;
+            text-align: center;
+            border: 1px solid #FF5D00;
+            color: #FF5D00;
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 22px;
+            margin-right: 10px;
+        }
+
+        .yuyue1 span {
+            font-size: 12px;
+        }
+
+        .imageList {
+        	overflow: hidden;
+            margin-top: 10px;
+            position: relative;
+        }
+		.imageList img{
+			float: left;
+		}
+        .imageList img {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body >
+
+<div class="header">
+
+
+    <div class="logo">
+        <dl>
+            <dt style="float: left;"><img src="images8/logo.jpg" alt="logo"/></dt>
+            <dd style="float: left;font-size: 32px;margin-top: 80px;">湖南沃德诺威信息科技有限公司</dd>
+        </dl>
+    </div>
+
+</div>
+<style>.left {
+    float: left;
+}</style>
+
+<style>
+    #allmap {
+        width: 630px;
+        height: 380px;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .fz14 {
+        font-size: 14px;
+    }
+
+    #contactHead {
+        height: 60px;
+        line-height: 60px;
+        font-size: 30px;
+        color: #373737;
+        border-bottom: 2px solid #E3E3E3;
+    }
+
+    #overlayContact {
+        display: none;
+        width: 710px;
+        height: 600px;
+        position: absolute;
+        z-index: 10000;
+    }
+
+    #overlayContactDetails {
+        background-color: #fff;
+        width: 650px;
+        height: 600px;
+    }
+
+    #overlayContact_x {
+    }
+
+    #overlaySetCity {
+        width: 710px;
+        height: 400px;
+        position: absolute;
+        z-index: 10000;
+    }
+
+    #overlayCityDetails {
+        background-color: #fff;
+        height: 100%;
+        width: 650px;
+    }
+
+    #overlayContext {
+        padding: 0px 20px;
+        padding-top: 20px;
+        height: 100%;
+    }
+
+    #cityList {
+        height: 290px;
+    }
+
+    #cityList div {
+        height: 40px;
+        width: 100px;
+        line-height: 40px;
+        border: 1px solid #E3E3E3;
+        text-align: center;
+        background-image: linear-gradient(#fff, #E3E3E3,#dddddd );
+        float: left;
+        margin-top: 20px;
+        color: #424242;
+        /*margin-left: 10px;*/
+        margin-right: 10px;
+        cursor: pointer;
+    }
+</style>
+
+
+<div class="tnav2" id="slideNav2"><div class="tnav2inner mw">
+    <ul class="tnav2list">
+        <li ><a href="index.html" class="dt">首&ensp;页</a></li>
+        <li class="gt"></li>
+
+        <li class="current_nav"><a href="service.html" class="dt">服务项目</a>
+
+        </li>
+
+        <li class="gt"></li>
+        <li><a href="advantage.html" class="dt">公司优势</a>
+            <div class="tnav2_sec">
+                <a href="advantage.html">公司优势</a>
+
+                <a href="qualifications.html">资质荣誉</a>
+
+            </div>
+        </li>
+        <li><a href="control.html" class="dt">服务流程</a></li>
+        <li class="gt"></li>
+        <li><a href="price.html" class="dt">保养报价</a></li>
+        <li class="gt"></li>
+        <li><a href="contact.html" class="dt">联系我们</a></li>
+    </ul>
+    <i class="tnavline2" id="slideNavLine2"></i>
+</div></div>
+
+<div class="mpMainContent">
+
+
+
+    <div style="width: 100%; text-align: center;">
+
+
+    </div>
+    <div class="details" id="details">
+        <div class="imageList">
+            <img src="images8/cgby.jpg"/>
+            <span id="" class="baoYangDetails" url="/" style="bottom: 0px; left: 10px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">常规保养</div>
+                        <div class="baoYangJieShao">更换机油、三滤、严谨细致工艺</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥238<span>起</span></div>
+                </span>
+
+            <img src="images8/ktqx.jpg"/>
+            <span id="" class="baoYangDetails" url="/kongtiaoindex.aspx" style="background-image: none !important; background-attachment: scroll !important; background-color: rgba(183, 234, 112, 0.901961) !important; bottom: 0px; left: 340px; display: inline; background-position: initial initial !important; background-repeat: repeat repeat !important;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle" style="color: #2a2929;">空调清洗</div>
+                        <div class="baoYangJieShao" style="color: #417d05">让车内空气质量达到北欧标准</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268</div>
+                </span>
+            <img src="images8/jcqx.jpg"/>
+            <span id="" class="baoYangDetails" url="JiCangQingXi.aspx" style="bottom: 0px; left: 670px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">发动机舱精洗养护</div>
+                        <div class="baoYangJieShao">给爱车一个健康的“心脏”</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268</div>
+                </span>
+
+        </div>
+        <div class="imageList">
+            <img src="images8/bldm.jpg"/>
+            <span id="" class="baoYangDetails" url="/BoLiDuMo.aspx" style="bottom: 0px; left: 10px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">全车玻璃防雨镀膜</div>
+                        <div class="baoYangJieShao">确保视野清晰,远离雨天行车事故</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268</div>
+                </span>
+            <img src="images8/pm25.jpg"/>
+            <span id="" class="baoYangDetails" url="Pm25.aspx" style="background-image: none !important; background-attachment: scroll !important; background-color: rgba(183, 234, 112, 0.901961) !important; bottom: 0px; left: 340px; display: inline; background-position: initial initial !important; background-repeat: repeat repeat !important;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle" style="color: #2a2929;">PM2.5空调滤芯</div>
+                        <div class="baoYangJieShao" style="color: #417d05">让您和家人迅速远离雾霾</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268<span>起</span></div>
+                </span>
+            <img src="images8/qcjc.jpg"/>
+            <span id="" class="baoYangDetails" url="AnQuanJianCe.aspx" style="bottom: 0px; left: 670px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">11项全车安全检测</div>
+                        <div class="baoYangJieShao">安全检测,为安全行驶保驾护航</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268</div>
+                </span>
+
+
+        </div>
+        <div class="imageList">
+            <img src="images8/ghscp.jpg"/>
+            <span id="" class="baoYangDetails" url="GengHuanShaChePian.aspx" style="bottom: 0px; left: 10px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">更换刹车片</div>
+                        <div class="baoYangJieShao">有效制动,行车安全无忧</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥238<span>起</span></div>
+                </span>
+            <img src="images8/ghscp1.jpg"/>
+            <span id="" class="baoYangDetails" url="GengHuanShaChePan.aspx" style="bottom: 0px; left: 340px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">更换刹车盘</div>
+                        <div class="baoYangJieShao">专业、严谨、安全驾乘保障</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥238<span>起</span></div>
+                </span>
+            <img src="images8/hhs.jpg"/>
+            <span id="" class="baoYangDetails" url="GengHuanHuoHuaSai.aspx" style="bottom: 0px; left: 670px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">更换火花塞</div>
+                        <div class="baoYangJieShao">释放爱车强劲引擎动力</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥198<span>起</span></div>
+                </span>
+
+        </div>
+        <div class="imageList">
+            <img src="images8/jieqimen.jpg"/>
+            <span id="" class="baoYangDetails" url="JieQiMenQingXi.aspx" style="bottom: 0px; left: 10px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">节气门深度清洗</div>
+                        <div class="baoYangJieShao">保护发动机咽喉，提升爱车动力</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268</div>
+                </span>
+            <img src="images8/ghdp.jpg"/>
+            <span id="" class="baoYangDetails" url="GengHuanDianPing.aspx" style="bottom: 0px; left: 340px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">更换电瓶</div>
+                        <div class="baoYangJieShao">以旧换新，免收服务费</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥148<span>起</span></div>
+                </span>
+            <img src="images8/sdsj.jpg"/>
+            <span id="" class="baoYangDetails" url="ShenDuShaJun.aspx" style="bottom: 0px; left: 670px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">空调系统深度杀菌</div>
+                        <div class="baoYangJieShao">彻底消除霉味细菌</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥398</div>
+                </span>
+        </div>
+        <div class="imageList">
+            <img style="float:left;" src="images8/ghscy.jpg"/>
+            <span id="" class="baoYangDetails" url="GengHuanShaCheYou.aspx" style="bottom: 0px; left: 10px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">更换刹车油</div>
+                        <div class="baoYangJieShao">恢复刹车灵敏，保障家人安全</div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥268<span>起</span></div>
+                </span>
+            <img style="float:left;" src="images8/nsqx.jpg"/>
+            <span id="" class="baoYangDetails" url="NeiShiQingXi.aspx" style="bottom: 0px; left: 340px; display: inline;">
+                    <div class="baoYangDetails1">
+                        <div class="baoYangTitle">内饰清洗套餐</div>
+                        <div class="baoYangJieShao">内饰清洗+臭氧杀菌除味+皮革护理 </div>
+                    </div>
+                    <div class="yuyue1" title="详情">￥498<span>起</span></div>
+                </span>
+
+        </div>
+
+
+    </div>
+    <div style="width: 100%; height: 100px">
+    </div>
+
+</div>
+
+
+
+<div class="newfooter">
+    <div class="newfoot">
+        <ul>
+            <li><a href="index.html" title="公司首页">公司首页</a>|</li>
+            <li><a href="service.html" title="服务内容">服务项目</a>|</li>
+            <li><a href="advantage.html" title="公司优势">公司优势</a>|</li>
+            <li><a href="control.html" title="质量控制">服务流程</a>|</li>
+            <li><a href="price.html" title="价格体系">保养价格</a>|</li>
+            <li><a href="contact.html" title="联系我们">联系我们</a></li>
+
+        </ul>
+    </div>
+
+    <p class="tac">
+        Copyright &copy; 2017 LandaishuTranslation Service Co., Ltd All Rights Reserved.<br/>
+        湖南沃德诺威信息科技有限公司版权所有
+    </p>
+</div>
+
+
+
+
+
+
+<!--end最小-->
+
+    <!--end文件底-->
+
+    <script src="js8/jquery-1.js"></script>
+    <script src="js8/jquery.js"></script>
+    <script src="js8/tool.js"></script>
+
+
+
+
+    <!--cnzz tongji code-->
+
+
+</body>
+</html>
+
