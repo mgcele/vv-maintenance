@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author mgcele
  */
-public class RegisterVO implements Serializable{
+public class RegisterRequestVO extends AbstractGeneResponse implements Serializable{
     
     private static final long serialVersionUID = 8296373349299032033L;
     private String realName;

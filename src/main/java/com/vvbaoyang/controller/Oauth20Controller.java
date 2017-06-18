@@ -1,8 +1,7 @@
 package com.vvbaoyang.controller;
 
-import com.vvbaoyang.filter.Oauth20Filter;
 import com.vvbaoyang.helper.SessionHelper;
-import com.vvbaoyang.util.HttpUtil;
+import com.vvbaoyang.util.HttpsUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpSession;
 
@@ -61,10 +59,10 @@ public class Oauth20Controller {
     private String getOpenId(String code){
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + weChatAppId + "&secret=" + weChatSecret + "&code=" + code
                 + "&grant_type=authorization_code";
-        HttpUtil httpUtil = new HttpUtil(url, null);
+        HttpsUtil httpsUtil = new HttpsUtil(url, null);
         String result = null;
         try {
-            result = httpUtil.Do();
+            result = httpsUtil.Do();
         } catch (Exception e) {
             //TODO 异常
             e.printStackTrace();

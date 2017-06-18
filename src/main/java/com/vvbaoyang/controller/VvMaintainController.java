@@ -26,7 +26,7 @@ public class VvMaintainController {
     
     @RequestMapping("/order")
     public String order(){
-        return "order";
+        return "order1";
     }
 
 }
