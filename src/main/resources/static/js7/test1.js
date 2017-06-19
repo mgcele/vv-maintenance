@@ -14,12 +14,15 @@
 
            // "carType.json"
            // "/user/carModel/0"
-            $.get("carType.json",
+            var brandUrl = "/user/carModel/"+bid;
+            alert(brandUrl);
+            $.get(brandUrl,
                 function(data) {
 
-                    if(data.status == 1) {
-                        html = '<option value="0">车型</option>';
-                        list = data.list;
+
+                    if(data.status.retCode == 0) {
+                        html = '<option value="0">系列</option>';
+                        list = data.data.list;
                         for(var i = 0; i < list.length; i++) {
                             html += '<option value="' + list[i].id + '">' + list[i].title + '</option>';
                         }
@@ -33,11 +36,15 @@
         //
         $("select[name=sub_brand]").change(function() {
             var bid = $(this).val();
-            $.get("carSerials.json",
+
+            var brandUrl = "/user/carDisplacement/"+bid;
+            alert(brandUrl);
+
+            $.get(brandUrl,
                 function(data) {
-                    if(data.status == 1) {
+                    if(data.status.retCode == 0) {
                         html = '<option value="0">款式</option>';
-                        list = data.list;
+                        list = data.data.list;
                         for(var i = 0; i < list.length; i++) {
                             html += '<option value="' + list[i].id + '">' + list[i].title + '</option>';
                         }
@@ -73,17 +80,17 @@ function order() {
 
     }
     if(bid.val() == 0 || bid.val() == '') {
-        alert("请选择车型");
+        alert("请选择品牌");
         bid.focus();
         return false;
     }
     if(sid.val() == 0 || sid.val() == '') {
-        alert("请选择款式");
+        alert("请选择系列");
         bid.focus();
         return false;
     }
     if(tid.val() == 0 || tid.val() == '') {
-        alert("请选择车系");
+        alert("请选择款式");
         bid.focus();
         return false;
     }
