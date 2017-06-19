@@ -72,4 +72,20 @@ public class VvMaintainController {
 
         return "qualifications";
     }
+
+
+    @RequestMapping(value = "/order2", method = RequestMethod.GET)
+    public String order2(){
+        return "order2";
+    }
+
+    @RequestMapping(value = "/order3", method = RequestMethod.GET)
+    public String order3(){
+        return "order3";
+    }
+
+    @RequestMapping(value = "/order4", method = RequestMethod.GET)
+    public String order4(){
+        return "order4";
+    }
 }

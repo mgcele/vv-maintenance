@@ -12,8 +12,9 @@
                 return false;
             }
 
-
-            $.get("/user/carModel/id=0",
+           // "carType.json"
+           // "/user/carModel/0"
+            $.get("carType.json",
                 function(data) {
 
                     if(data.status == 1) {
@@ -28,6 +29,8 @@
 
         });
 
+        //"/user/carDisplacement/0",
+        //
         $("select[name=sub_brand]").change(function() {
             var bid = $(this).val();
             $.get("carSerials.json",
