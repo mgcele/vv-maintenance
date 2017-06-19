@@ -192,6 +192,7 @@ public class SmsSingleSender {
         
         data.put("tel", tel);
         data.put("sig", util.calculateSigForTempl(appkey, random, curTime, phoneNumber));
+//        data.put("sig", util.strToHash(String.format("appkey=%s&random=%d&time=%d&mobile=%s", appkey, random, curTime, phoneNumber)));
         data.put("tpl_id", templId);
         data.put("params", util.smsParamsToJSONArray(params));
         data.put("sign", sign);

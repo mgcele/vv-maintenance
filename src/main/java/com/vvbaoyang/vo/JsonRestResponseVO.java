@@ -38,11 +38,6 @@ public class JsonRestResponseVO implements Serializable{
         return this;
     }
     
-    public JsonRestResponseVO failure(String retCode, String message, String[] msgs) {
-        this.status = new Status(retCode, message, msgs);
-        return this;
-    }
-    
     public Status getStatus() {
         return status;
     }
@@ -56,34 +51,27 @@ public class JsonRestResponseVO implements Serializable{
         private String retCode;
         
         // 具体的异常消息描述列表，经常用于校验返回
-        private String[] errMsg;
+        private String errMsg;
         
         public Status(String retCode) {
             this.retCode = retCode;
-            this.errMsg = new String[1];
-            this.errMsg[0] = "";
+            this.errMsg = "";
         }
         
         public Status(String retCode, String retMsg) {
             this.retCode = retCode;
-            this.errMsg = new String[1];
-            this.errMsg[0] = retMsg;
-        }
-        
-        public Status(String retCode, String retMsg, String[] errMsg) {
-            this.retCode = retCode;
-            this.errMsg = errMsg;
+            this.errMsg = retMsg;
         }
         
         public String getRetCode() {
             return retCode;
         }
         
-        public String[] getErrMsg() {
+        public String getErrMsg() {
             return errMsg;
         }
         
-        public void setErrMsg(String[] errMsg) {
+        public void setErrMsg(String errMsg) {
             this.errMsg = errMsg;
         }
         

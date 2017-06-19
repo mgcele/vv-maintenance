@@ -1,14 +1,12 @@
 package com.vvbaoyang.api;
 
 import com.vvbaoyang.helper.SessionHelper;
-import com.vvbaoyang.repository.CarBrandRepository;
 import com.vvbaoyang.repository.CarDisplacementRepository;
 import com.vvbaoyang.repository.CarGoodsRepository;
 import com.vvbaoyang.repository.CarModelRepository;
 import com.vvbaoyang.repository.OrderRepository;
 import com.vvbaoyang.repository.UserCodeRepository;
 import com.vvbaoyang.repository.UserRepository;
-import com.vvbaoyang.repository.model.CarBrand;
 import com.vvbaoyang.repository.model.CarDisplacement;
 import com.vvbaoyang.repository.model.CarGoods;
 import com.vvbaoyang.repository.model.CarModel;
@@ -18,9 +16,10 @@ import com.vvbaoyang.repository.model.UserCode;
 import com.vvbaoyang.util.RandomUtil;
 import com.vvbaoyang.util.SmsSingleSender;
 import com.vvbaoyang.vo.AbstractGeneResponse;
-import com.vvbaoyang.vo.CarBrandResponseVO;
 import com.vvbaoyang.vo.CarDisplacementResponseVO;
+import com.vvbaoyang.vo.CarGoodsResponse;
 import com.vvbaoyang.vo.CarGoodsResponseVO;
+import com.vvbaoyang.vo.CarModelResponse;
 import com.vvbaoyang.vo.CarModelResponseVO;
 import com.vvbaoyang.vo.OrderRequestVO;
 import com.vvbaoyang.vo.RegisterRequestVO;
@@ -36,6 +35,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
@@ -89,18 +89,20 @@ public class UserApi {
     }
     
     @GetMapping("/carGoods")
-    public List<CarGoodsResponseVO> queryCarGoods(){
+    public CarGoodsResponseVO queryCarGoods(){
         List<CarGoods> list = carGoodsRepository.findAll();
-        List<CarGoodsResponseVO> tempList = new ArrayList<>();
+        CarGoodsResponseVO carGoodsResponseVO = new CarGoodsResponseVO();
         if(CollectionUtils.isEmpty(list)){
-            return tempList;
+            return carGoodsResponseVO;
         }
+        List<CarGoodsResponse> tempList = new ArrayList<>();
         for (CarGoods carGoods : list) {
-            CarGoodsResponseVO temp = new CarGoodsResponseVO();
+            CarGoodsResponse temp = new CarGoodsResponse();
             BeanUtils.copyProperties(carGoods, temp);
             tempList.add(temp);
         }
-        return tempList;
+        carGoodsResponseVO.setList(tempList);
+        return carGoodsResponseVO;
     }
     
     @GetMapping("/carDisplacement/{did}")
@@ -114,18 +116,21 @@ public class UserApi {
     }
     
     @GetMapping("/carModel/{bid}")
-    public List<CarModelResponseVO> queryCarModel(@PathVariable(value = "bid") Integer bid){
+    public CarModelResponseVO queryCarModel(@PathVariable(value = "bid") Integer bid){
         List<CarModel> list = carModelRepository.findByBid(bid);
-        List<CarModelResponseVO> tempList = new ArrayList<>();
+        CarModelResponseVO carModelResponseVO = new CarModelResponseVO();
         if(CollectionUtils.isEmpty(list)){
-            return tempList;
+            return carModelResponseVO;
         }
+        
+        List<CarModelResponse> tempList = new ArrayList<>();
         for(CarModel carModel : list){
-            CarModelResponseVO temp = new CarModelResponseVO();
+            CarModelResponse temp = new CarModelResponse();
             BeanUtils.copyProperties(carModel, temp);
             tempList.add(temp);
         }
-        return tempList;
+        carModelResponseVO.setList(tempList);
+        return carModelResponseVO;
     }
     
     @PostMapping("/register")
@@ -152,11 +157,14 @@ public class UserApi {
     }
     
     @GetMapping("/getVC")
-    public void getVC(String username) throws Exception {
+    public void getVC(@RequestParam(value = "username") String username) throws Exception {
         
         String code = generateCode();
         
         UserCode userCode = userCodeRepository.findUserCodeByCodeKey(username);
+        if(userCode == null) {
+            userCode = new UserCode();
+        }
         userCode.setCode(code);
         userCode.setCodeKey(username);
         userCode.setCreateTime(new Date());
