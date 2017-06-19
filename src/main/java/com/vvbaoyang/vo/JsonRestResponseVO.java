@@ -20,7 +20,7 @@ public class JsonRestResponseVO implements Serializable{
     /**
      * 数据
      */
-    private JSONObject list;
+    private JSONObject data;
     
     public JsonRestResponseVO success() {
         this.status = new Status(RET_CODE_SUCCESS);
@@ -29,7 +29,7 @@ public class JsonRestResponseVO implements Serializable{
     
     public JsonRestResponseVO success(JSONObject list) {
         this.status = new Status(RET_CODE_SUCCESS);
-        this.list = list;
+        this.data = list;
         return this;
     }
     
@@ -42,8 +42,8 @@ public class JsonRestResponseVO implements Serializable{
         return status;
     }
     
-    public JSONObject getList() {
-        return list;
+    public JSONObject getData() {
+        return data;
     }
     
     public class Status {

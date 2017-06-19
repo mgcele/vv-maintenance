@@ -1,39 +1,20 @@
 package com.vvbaoyang.vo;
 
 import javax.persistence.Column;
+import java.util.List;
 
 /**
  * @author mgcele
  */
 public class CarDisplacementResponseVO extends AbstractGeneResponse{
     private static final long serialVersionUID = 8150992365289471633L;
-    private Integer id;
+    private List<CarDisplacementResponse> list;
     
-    private Integer did;
-    
-    private String title;
-    
-    public Integer getId() {
-        return id;
+    public List<CarDisplacementResponse> getList() {
+        return list;
     }
     
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    
-    public Integer getDid() {
-        return did;
-    }
-    
-    public void setDid(Integer did) {
-        this.did = did;
-    }
-    
-    public String getTitle() {
-        return title;
-    }
-    
-    public void setTitle(String title) {
-        this.title = title;
+    public void setList(List<CarDisplacementResponse> list) {
+        this.list = list;
     }
 }

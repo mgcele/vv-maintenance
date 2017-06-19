@@ -233,6 +233,6 @@ public class SmsSingleSender {
         List<String> list = new ArrayList<>();
         list.add(code);
         //(String nationCode, String phoneNumber, int templId, ArrayList<String> params, String sign, String extend,String ext
-        sendWithParam("86", mobile, 24687, list, "", "", "");
+        sendWithParam("86", mobile, 24687, list, "沃德诺威", "", "");
     }
 }

@@ -16,6 +16,7 @@ import com.vvbaoyang.repository.model.UserCode;
 import com.vvbaoyang.util.RandomUtil;
 import com.vvbaoyang.util.SmsSingleSender;
 import com.vvbaoyang.vo.AbstractGeneResponse;
+import com.vvbaoyang.vo.CarDisplacementResponse;
 import com.vvbaoyang.vo.CarDisplacementResponseVO;
 import com.vvbaoyang.vo.CarGoodsResponse;
 import com.vvbaoyang.vo.CarGoodsResponseVO;
@@ -107,11 +108,18 @@ public class UserApi {
     
     @GetMapping("/carDisplacement/{did}")
     public CarDisplacementResponseVO queryCarDisplacement(@PathVariable(value = "did") Integer did){
-        CarDisplacement carDisplacement = carDisplacementRepository.findByDid(did);
+        List<CarDisplacement> carDisplacementList = carDisplacementRepository.findByDid(did);
         CarDisplacementResponseVO carDisplacementResponseVO = new CarDisplacementResponseVO();
-        if(carDisplacement != null) {
-            BeanUtils.copyProperties(carDisplacement, carDisplacementResponseVO);
+        if(CollectionUtils.isEmpty(carDisplacementList)){
+            return carDisplacementResponseVO;
         }
+        List<CarDisplacementResponse> tempList = new ArrayList<>();
+        for(CarDisplacement carDisplacement : carDisplacementList) {
+            CarDisplacementResponse temp = new CarDisplacementResponse();
+            BeanUtils.copyProperties(carDisplacement, temp);
+            tempList.add(temp);
+        }
+        carDisplacementResponseVO.setList(tempList);
         return carDisplacementResponseVO;
     }
     
