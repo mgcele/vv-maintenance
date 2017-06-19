@@ -189,6 +189,7 @@ public class UserApi {
             boolean result = randomCode.equals(userCode.getCode());
             if (result) {
                 userCodeRepository.delete(userCode);
+                return true;
             }
         }
         return false;
