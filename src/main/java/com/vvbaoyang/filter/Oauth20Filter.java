@@ -78,7 +78,7 @@ public class Oauth20Filter implements Filter{
                     session.setAttribute("telePhoneNum", user.getTelePhoneNum());
                 } else {
                     String tempUrl = request.getServletPath();
-                    if(tempUrl.contains("register") || tempUrl.contains("getCar")){
+                    if(tempUrl.contains("register") || tempUrl.contains("getVC")){
                         filterChain.doFilter(request, response);
                         return;
                     }
@@ -114,7 +114,7 @@ public class Oauth20Filter implements Filter{
      */
     private boolean isUrlExcluded(String url){
         if(StringUtils.isNotBlank(url)){
-            if(url.contains("js") || url.contains("css") || url.contains("oauth") || url.contains("images") || url.contains("getCar")){
+            if(url.contains("js") || url.contains("css") || url.contains("oauth") || url.contains("images") || url.contains("getVC")){
                 return true;
             }
         }
