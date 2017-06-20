@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @author mgcele
  */
-public class CarModelResponse implements Serializable{
+public class CarSerisResponse implements Serializable{
     private static final long serialVersionUID = 4127573203473075711L;
     private Integer id;
     private Integer bid;

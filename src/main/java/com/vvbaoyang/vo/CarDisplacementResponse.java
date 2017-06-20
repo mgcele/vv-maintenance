@@ -1,5 +1,6 @@
 package com.vvbaoyang.vo;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 
 /**
@@ -8,10 +9,13 @@ import java.io.Serializable;
 public class CarDisplacementResponse implements Serializable{
     private static final long serialVersionUID = 355380299073433238L;
     private Integer id;
-    
-    private Integer did;
-    
+    private Integer sid;
     private String title;
+    /**
+     * 容量
+     */
+    @Column(name = "capacity")
+    private Double capacity;
     
     public Integer getId() {
         return id;
@@ -21,12 +25,12 @@ public class CarDisplacementResponse implements Serializable{
         this.id = id;
     }
     
-    public Integer getDid() {
-        return did;
+    public Integer getSid() {
+        return sid;
     }
     
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setSid(Integer sid) {
+        this.sid = sid;
     }
     
     public String getTitle() {
@@ -36,4 +40,5 @@ public class CarDisplacementResponse implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
+    
 }
