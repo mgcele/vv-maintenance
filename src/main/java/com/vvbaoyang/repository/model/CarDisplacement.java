@@ -1,7 +1,5 @@
 package com.vvbaoyang.repository.model;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,11 +21,17 @@ public class CarDisplacement implements Serializable{
     @Column(name = "id")
     private Integer id;
     
-    @Column(name = "did")
-    private Integer did;
+    @Column(name = "sid")
+    private Integer sid;
     
     @Column(name = "title")
     private String title;
+    
+    /**
+     * 容量
+     */
+    @Column(name = "capacity")
+    private Double capacity;
     
     public Integer getId() {
         return id;
@@ -37,12 +41,12 @@ public class CarDisplacement implements Serializable{
         this.id = id;
     }
     
-    public Integer getDid() {
-        return did;
+    public Integer getSid() {
+        return sid;
     }
     
-    public void setDid(Integer did) {
-        this.did = did;
+    public void setSid(Integer sid) {
+        this.sid = sid;
     }
     
     public String getTitle() {
@@ -51,5 +55,13 @@ public class CarDisplacement implements Serializable{
     
     public void setTitle(String title) {
         this.title = title;
+    }
+    
+    public Double getCapacity() {
+        return capacity;
+    }
+    
+    public void setCapacity(Double capacity) {
+        this.capacity = capacity;
     }
 }

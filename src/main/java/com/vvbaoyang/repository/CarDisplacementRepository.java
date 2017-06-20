@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface CarDisplacementRepository extends JpaRepository<CarDisplacement, Integer>{
     
-    List<CarDisplacement> findByDid(Integer did);
+    List<CarDisplacement> findBySid(Integer sid);
     
 }

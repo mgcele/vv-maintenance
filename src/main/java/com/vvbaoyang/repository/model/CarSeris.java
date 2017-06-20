@@ -10,11 +10,10 @@ import java.io.Serializable;
 /**
  * @author mgcele
  */
+@Entity(name = "t_car_seris")
 @Table
-@Entity(name = "t_car_brand")
-public class CarBrand implements Serializable{
-    
-    private static final long serialVersionUID = 8333628920547660943L;
+public class CarSeris implements Serializable{
+    private static final long serialVersionUID = 2794225214545630923L;
     
     @Id
     @GeneratedValue
@@ -24,8 +23,8 @@ public class CarBrand implements Serializable{
     @Column(name = "bid")
     private Integer bid;
     
-    @Column(name = "car_brand")
-    private String carBrand;
+    @Column(name = "title")
+    private String title;
     
     public Integer getId() {
         return id;
@@ -43,11 +42,11 @@ public class CarBrand implements Serializable{
         this.bid = bid;
     }
     
-    public String getCarBrand() {
-        return carBrand;
+    public String getTitle() {
+        return title;
     }
     
-    public void setCarBrand(String carBrand) {
-        this.carBrand = carBrand;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

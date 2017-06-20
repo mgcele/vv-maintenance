@@ -15,7 +15,7 @@
            // "carType.json"
            // "/user/carModel/0"
             var brandUrl = "/user/carModel/"+bid;
-            alert(brandUrl);
+            // alert(brandUrl);
             $.get(brandUrl,
                 function(data) {
 
@@ -38,8 +38,7 @@
             var bid = $(this).val();
 
             var brandUrl = "/user/carDisplacement/"+bid;
-            alert(brandUrl);
-
+            // alert(brandUrl);
             $.get(brandUrl,
                 function(data) {
                     if(data.status.retCode == 0) {
@@ -79,17 +78,17 @@ function order() {
         return false;
 
     }
-    if(bid.val() == 0 || bid.val() == '') {
+    if(bid.val() == -1 || bid.val() == '') {
         alert("请选择品牌");
         bid.focus();
         return false;
     }
-    if(sid.val() == 0 || sid.val() == '') {
+    if(sid.val() == -1 || sid.val() == '') {
         alert("请选择系列");
         bid.focus();
         return false;
     }
-    if(tid.val() == 0 || tid.val() == '') {
+    if(tid.val() == -1 || tid.val() == '') {
         alert("请选择款式");
         bid.focus();
         return false;

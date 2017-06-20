@@ -3,13 +3,13 @@ package com.vvbaoyang.api;
 import com.vvbaoyang.helper.SessionHelper;
 import com.vvbaoyang.repository.CarDisplacementRepository;
 import com.vvbaoyang.repository.CarGoodsRepository;
-import com.vvbaoyang.repository.CarModelRepository;
+import com.vvbaoyang.repository.CarSerisRepository;
 import com.vvbaoyang.repository.OrderRepository;
 import com.vvbaoyang.repository.UserCodeRepository;
 import com.vvbaoyang.repository.UserRepository;
 import com.vvbaoyang.repository.model.CarDisplacement;
 import com.vvbaoyang.repository.model.CarGoods;
-import com.vvbaoyang.repository.model.CarModel;
+import com.vvbaoyang.repository.model.CarSeris;
 import com.vvbaoyang.repository.model.Order;
 import com.vvbaoyang.repository.model.User;
 import com.vvbaoyang.repository.model.UserCode;
@@ -20,8 +20,8 @@ import com.vvbaoyang.vo.CarDisplacementResponse;
 import com.vvbaoyang.vo.CarDisplacementResponseVO;
 import com.vvbaoyang.vo.CarGoodsResponse;
 import com.vvbaoyang.vo.CarGoodsResponseVO;
-import com.vvbaoyang.vo.CarModelResponse;
-import com.vvbaoyang.vo.CarModelResponseVO;
+import com.vvbaoyang.vo.CarSerisResponse;
+import com.vvbaoyang.vo.CarSerisResponseVO;
 import com.vvbaoyang.vo.JsonRestResponseVO;
 import com.vvbaoyang.vo.OrderRequestVO;
 import com.vvbaoyang.vo.RegisterRequestVO;
@@ -70,7 +70,7 @@ public class UserApi {
     private Integer MAX_VC;
     
     @Autowired
-    private CarModelRepository carModelRepository;
+    private CarSerisRepository carSerisRepository;
     
     @Autowired
     private CarDisplacementRepository carDisplacementRepository;
@@ -113,7 +113,7 @@ public class UserApi {
     
     @GetMapping("/carDisplacement/{did}")
     public CarDisplacementResponseVO queryCarDisplacement(@PathVariable(value = "did") Integer did) {
-        List<CarDisplacement> carDisplacementList = carDisplacementRepository.findByDid(did);
+        List<CarDisplacement> carDisplacementList = carDisplacementRepository.findBySid(did);
         CarDisplacementResponseVO carDisplacementResponseVO = new CarDisplacementResponseVO();
         if (CollectionUtils.isEmpty(carDisplacementList)) {
             return carDisplacementResponseVO;
@@ -129,21 +129,21 @@ public class UserApi {
     }
     
     @GetMapping("/carModel/{bid}")
-    public CarModelResponseVO queryCarModel(@PathVariable(value = "bid") Integer bid) {
-        List<CarModel> list = carModelRepository.findByBid(bid);
-        CarModelResponseVO carModelResponseVO = new CarModelResponseVO();
+    public CarSerisResponseVO queryCarModel(@PathVariable(value = "bid") Integer bid) {
+        List<CarSeris> list = carSerisRepository.findByBid(bid);
+        CarSerisResponseVO carSerisResponseVO = new CarSerisResponseVO();
         if (CollectionUtils.isEmpty(list)) {
-            return carModelResponseVO;
+            return carSerisResponseVO;
         }
         
-        List<CarModelResponse> tempList = new ArrayList<>();
-        for (CarModel carModel : list) {
-            CarModelResponse temp = new CarModelResponse();
-            BeanUtils.copyProperties(carModel, temp);
+        List<CarSerisResponse> tempList = new ArrayList<>();
+        for (CarSeris carSeris : list) {
+            CarSerisResponse temp = new CarSerisResponse();
+            BeanUtils.copyProperties(carSeris, temp);
             tempList.add(temp);
         }
-        carModelResponseVO.setList(tempList);
-        return carModelResponseVO;
+        carSerisResponseVO.setList(tempList);
+        return carSerisResponseVO;
     }
     
     @PostMapping("/register")

@@ -15,11 +15,11 @@
 
 		<title>沃德诺威汽车上门养护</title>
 		<meta name="keywords" content="car1982，汽车养护，汽车保养，汽车上门服务，专属养车,养车顾问,"/>
-		<meta name="description" content="car1982—汽车上门养护"/>
+		<meta name="oilBrand" content="car1982—汽车上门养护"/>
 		<meta name="author" content="Kevin Chen"/>
-		<script type="text/javascript" src="./js7/test.js"></script>
+		<script type="text/javascript" src="./js7/order.js"></script>
 
-		<script type="text/javascript" src="./js7/test1.js"></script>
+		<script type="text/javascript" src="./js7/order1.js"></script>
 
 	</head>
 
@@ -59,7 +59,8 @@
 		<section class="layout">
 			<h3 style="color:#646464;background:#f6f6f6;">请选择您的车型</h3>
 			<select name="brand" id="brand">
-				<option value="0">品牌</option>
+				<option value="-1">品牌</option>
+				<option value="0">测试品牌</option>
 				<option value="39">奥迪</option>
 				<option value="40">宝马</option>
 				<option value="0">北汽</option>
@@ -109,10 +110,10 @@
 				<option value="其他">其他</option>
 			</select>
 			<select name="sub_brand" id="sub_brand">
-				<option value="0">系列</option>
+				<option value="-1">系列</option>
 			</select>
 			<select name="cc" id="cc">
-				<option value="0">款式</option>
+				<option value="-1">款式</option>
 			</select>
 			<div class="h10px" id="url" url="wxshop"></div>
 			<a class="disbtn" id="abc" href="javascript:;" onclick="order();" style="background:#90AA2D;padding:10px 0px;">立即预定</a>

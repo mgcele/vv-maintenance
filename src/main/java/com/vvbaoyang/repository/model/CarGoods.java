@@ -24,8 +24,11 @@ public class CarGoods implements Serializable{
     @Column(name = "price")
     private BigDecimal price;
     
-    @Column(name = "description")
-    private String description;
+    /**
+     * 机油品牌
+     */
+    @Column(name = "oil_brand")
+    private String oilBrand;
     
     public Integer getId() {
         return id;
@@ -43,11 +46,4 @@ public class CarGoods implements Serializable{
         this.price = price;
     }
     
-    public String getDescription() {
-        return description;
-    }
-    
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
