@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://weixin.yikuaixiu.com/nav/weixin/user/regist -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="keywords" content="沃德诺威在线养车,互联网快修,汽车保养,汽车美容,上门服务,汽车上门保养,汽车救援,北京救援,上门修车,宝马,奥迪,大众,一站式的上门汽车保养美容服务!"/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Expires" content="0"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+
+    <link rel="stylesheet" th:href="@{/css/ykx.ext.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mobile.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>用户提示</title>
+    <!--<script charset="utf-8" async="" src="./js/jquery-1.11.1.js"></script>-->
+    <!--<script charset="utf-8" async="" src="./js/ykx.base.js"></script>-->
+</head>
+<body>
+
+<div id="normalLogin" class="main section">
+    <h3>功能正在开发中，敬请期待</h3>
+</div>
+<script type="text/javascript" src="./js/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        preload: [
+            Function.prototype.bind ? '' : 'es5-safe',
+            this.JSON ? '' : 'json'
+        ],
+        alias: {
+            'jquery': 'jsLib/jquery/jquery-1.11.1.js',
+            'fastclick': 'jsLib/fastclick.js',
+            'reactjs': 'jsLib/react/react-0.13.3.min.js',
+            'qiniu': 'jsLib/qiniu/qiniu.js',
+            'jweixin': 'http://res.wx.qq.com/open/js/jweixin-1.0.0.js',
+            'icons': 'js/icon.js',
+            'ykx': 'js/ykx.base.js?v=6',
+            'ajaxloading': 'js/ajaxloading.js',
+            'uc': 'user/uc.js?v=3',
+            'message': 'js/message',
+            'clue': '/weixin/svc/clue.js?1'
+        },
+        paths: {
+            'js': '/js',
+            'jsLib': '/js'
+        },
+        debug: true,
+        base: '/weixin',
+        charset: 'utf-8'
+    });
+</script>
+<script type="text/javascript">
+    seajs.use(['jquery', 'ykx'], function () {
+        $(document).ready(function () {
+
+
+
+            $('#getCode').on("click", function () {
+
+                var phoneNum = $.trim($('#phoneNum').val())
+
+                if (!com.ykx.Env.isMobile(phoneNum)) {
+                    alert("请输入您的注册手机号码");
+                    return;
+                }
+
+
+
+
+                var codeUrl = "/user/getVC?username="+phoneNum;
+                // "/user/carModel/0"
+                alert(codeUrl);
+                $.get(codeUrl,
+                    function(data) {
+
+                       alert("发送成功");
+                    }, "json");
+
+
+            });
+
+
+            $("#phoneNum").on("blur", function () {
+                var phoneNum = $.trim($('#phoneNum').val())
+
+                if (phoneNum.length == 0) {
+                    return;
+                }
+                if (!com.ykx.Env.isMobile(phoneNum)) {
+                    alert('请输入正确的手机号码');
+                }
+            });
+            function validatePwd() {
+                var pwd = $('#password').val();
+                if (!com.ykx.Env.isValidPassword(pwd)) {
+                    alert('请输入有效的密码，必须由6位到16位的非空白字符组成');
+                    return false;
+                } else {
+                    var pw2 = $('#password2').val();
+                    if (pwd != pw2) {
+                        alert("两次输入的密码不一致");
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            function changeLocation(url) {
+                url = url.replace('///', '/');
+                window.location.href = url;
+            }
+
+            $('#submitReg').on('click', function () {
+                var userName = $.trim($("#userName").val());
+                var phoneNum = $.trim($('#phoneNum').val());
+                var captcha = $.trim($('#captcha').val());
+                var password = $('#password').val();
+                if (!com.ykx.Env.isValidUserName(userName)) {
+                    alert("请输入您的姓名，不能有空格和特殊符号");
+                    return false;
+                }
+                if (!com.ykx.Env.isMobile(phoneNum)) {
+                    alert('请输入您的手机号码');
+                    return false;
+                }
+                if (captcha == '') {
+                    alert("请输入短信验证码");
+                    return false;
+                }
+                if (!validatePwd()) {
+                    return false;
+                }
+
+
+
+                var isWeixinEnv = com.ykx.Env.isWeixinEnv();
+                var params = {
+                    "realName": userName,
+                    "telePhoneNum": phoneNum,
+                    "randomCode": captcha,
+                    "password": password,
+                    "tag": isWeixinEnv ? "weixin" : "wap"
+                };
+                params = JSON.stringify(params);
+                $.ajax({
+                    url: "/user/register",
+                    type: 'POST',
+                    data: params,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "text",
+                    success: function (result) {
+                        alert("通讯成功");
+                        /*if (result.type == "info") {
+                            // 注册后直接转到个人中心进行信息完善
+                            var url = "/user/index";
+                            //跳转到登录前页面
+                            changeLocation(url);
+                        } else {
+                            //注册失败
+                            alert(result.message);
+                            $("#captcha").val("");
+                        }*/
+                        var url = "/";
+                        changeLocation(url);
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>
