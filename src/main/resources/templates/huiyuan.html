@@ -147,9 +147,7 @@
     <figure>
         <img id="headImg" th:src="@{/images/headImg.png}"/>
         <figcaption id="user_nickname" th:text="${session.realName} "></figcaption>
-        <!--<div id="logoutLink" style="text-align: center;display:;">
-            <a href="http://weixin.yikuaixiu.com/user/logout">[退出登录]</a>
-        </div>-->
+
     </figure>
     <ul>
         <li>帐号：<a href="#"><span id="user_phoneNumber" th:text="${session.telePhoneNum}" ></span></a></li>
@@ -161,7 +159,9 @@
     </ul>
 </header>
 <section id="menu">
-
+    <div class="flex" id="myinfo" data-url="/tips">
+        <span class="a iconMyInfo"></span><span class="b">我的信息</span><span class="c arrowRight"></span>
+    </div>
     <div class="flex" data-url="/order">
         <span class="a iconMyOrder"></span><span class="b">我的订单</span><span class="c arrowRight"></span>
     </div>
