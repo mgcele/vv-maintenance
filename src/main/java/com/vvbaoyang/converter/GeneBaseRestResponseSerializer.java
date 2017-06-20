@@ -18,14 +18,19 @@ import java.io.IOException;
 public class GeneBaseRestResponseSerializer extends JsonSerializer<IGeneJsonable> {
     
     @Override
-    public void serialize(IGeneJsonable value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    public void serialize(IGeneJsonable value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
+        
         
         ObjectMapper mapper = new ObjectMapper();
-        String dataJsonStr = mapper.writeValueAsString(value);
+        JsonRestResponseVO obj = null;
+        try {
+            String dataJsonStr = mapper.writeValueAsString(value);
+            JSONObject dataJsonObj = JSON.parseObject(dataJsonStr);
+            obj = new JsonRestResponseVO().success(dataJsonObj);
+        } catch (JsonProcessingException e) {
+            obj = new JsonRestResponseVO().success();
+        }
         
-        JSONObject dataJsonObj = JSON.parseObject(dataJsonStr);
-        
-        JsonRestResponseVO obj = new JsonRestResponseVO().success(dataJsonObj);
         jgen.writeObject(obj);
         
     }

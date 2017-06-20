@@ -22,6 +22,7 @@ import com.vvbaoyang.vo.CarGoodsResponse;
 import com.vvbaoyang.vo.CarGoodsResponseVO;
 import com.vvbaoyang.vo.CarModelResponse;
 import com.vvbaoyang.vo.CarModelResponseVO;
+import com.vvbaoyang.vo.JsonRestResponseVO;
 import com.vvbaoyang.vo.OrderRequestVO;
 import com.vvbaoyang.vo.RegisterRequestVO;
 import org.apache.commons.lang3.StringUtils;
@@ -30,7 +31,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -79,7 +83,7 @@ public class UserApi {
     
     @PostMapping("/order")
     public AbstractGeneResponse addOrder(HttpSession session, @RequestBody OrderRequestVO orderRequestVO) {
-    
+        
         Order order = new Order();
         BeanUtils.copyProperties(orderRequestVO, order);
         String openId = (String) session.getAttribute(SessionHelper.getSessionIdForOpenId());
@@ -90,10 +94,11 @@ public class UserApi {
     }
     
     @GetMapping("/carGoods")
-    public CarGoodsResponseVO queryCarGoods(){
+    public CarGoodsResponseVO queryCarGoods() {
+    
         List<CarGoods> list = carGoodsRepository.findAll();
         CarGoodsResponseVO carGoodsResponseVO = new CarGoodsResponseVO();
-        if(CollectionUtils.isEmpty(list)){
+        if (CollectionUtils.isEmpty(list)) {
             return carGoodsResponseVO;
         }
         List<CarGoodsResponse> tempList = new ArrayList<>();
@@ -107,14 +112,14 @@ public class UserApi {
     }
     
     @GetMapping("/carDisplacement/{did}")
-    public CarDisplacementResponseVO queryCarDisplacement(@PathVariable(value = "did") Integer did){
+    public CarDisplacementResponseVO queryCarDisplacement(@PathVariable(value = "did") Integer did) {
         List<CarDisplacement> carDisplacementList = carDisplacementRepository.findByDid(did);
         CarDisplacementResponseVO carDisplacementResponseVO = new CarDisplacementResponseVO();
-        if(CollectionUtils.isEmpty(carDisplacementList)){
+        if (CollectionUtils.isEmpty(carDisplacementList)) {
             return carDisplacementResponseVO;
         }
         List<CarDisplacementResponse> tempList = new ArrayList<>();
-        for(CarDisplacement carDisplacement : carDisplacementList) {
+        for (CarDisplacement carDisplacement : carDisplacementList) {
             CarDisplacementResponse temp = new CarDisplacementResponse();
             BeanUtils.copyProperties(carDisplacement, temp);
             tempList.add(temp);
@@ -124,15 +129,15 @@ public class UserApi {
     }
     
     @GetMapping("/carModel/{bid}")
-    public CarModelResponseVO queryCarModel(@PathVariable(value = "bid") Integer bid){
+    public CarModelResponseVO queryCarModel(@PathVariable(value = "bid") Integer bid) {
         List<CarModel> list = carModelRepository.findByBid(bid);
         CarModelResponseVO carModelResponseVO = new CarModelResponseVO();
-        if(CollectionUtils.isEmpty(list)){
+        if (CollectionUtils.isEmpty(list)) {
             return carModelResponseVO;
         }
         
         List<CarModelResponse> tempList = new ArrayList<>();
-        for(CarModel carModel : list){
+        for (CarModel carModel : list) {
             CarModelResponse temp = new CarModelResponse();
             BeanUtils.copyProperties(carModel, temp);
             tempList.add(temp);
@@ -143,6 +148,7 @@ public class UserApi {
     
     @PostMapping("/register")
     public User register(HttpSession session, @RequestBody RegisterRequestVO registerRequestVO) {
+        
         logger.info("注册、、、");
         if (!checkRandomCode(registerRequestVO.getTelePhoneNum(), registerRequestVO.getRandomCode())) {
             throw new RuntimeException("验证码错误！");
@@ -165,12 +171,12 @@ public class UserApi {
     }
     
     @GetMapping("/getVC")
-    public void getVC(@RequestParam(value = "username") String username) throws Exception {
+    public AbstractGeneResponse getVC(@RequestParam(value = "username") String username) throws Exception {
         
         String code = generateCode();
         
         UserCode userCode = userCodeRepository.findUserCodeByCodeKey(username);
-        if(userCode == null) {
+        if (userCode == null) {
             userCode = new UserCode();
         }
         userCode.setCode(code);
@@ -180,7 +186,7 @@ public class UserApi {
         
         SmsSingleSender smsSingleSender = new SmsSingleSender();
         smsSingleSender.sendSms(username, code);
-        
+        return new AbstractGeneResponse();
     }
     
     /**
@@ -208,6 +214,16 @@ public class UserApi {
      */
     private String generateCode() {
         return RandomUtil.randomInt(MIN_VC, MAX_VC) + "";
+    }
+    
+    @ExceptionHandler
+    public ResponseEntity<JsonRestResponseVO> handleException(Exception e) {
+        logger.error(e.getMessage(), e);
+    
+        String errMsg = e.getMessage();
+        JsonRestResponseVO result = new JsonRestResponseVO().failure("1", errMsg);
+    
+        return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
     }
     
 }
