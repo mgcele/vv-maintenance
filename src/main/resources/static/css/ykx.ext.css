@@ -313,7 +313,7 @@ label.choice > input {
     display: block;
 }
 .iconOnSite {
-    background-image: url("../images/icons-app/order_icon.png");
+    background-image: url("../images/order_icon.png");
     background-size: 24px auto;
     background-position: 0 -230px;
     background-repeat: no-repeat;
@@ -369,35 +369,35 @@ button.add > span.icon {
     cursor: pointer;
 }
 .iconMyInfo {
-    background: url("../images/icons-app/icon-myinfo.png") no-repeat center center;
+    background: url("../images/icon-myinfo.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconMyOrder {
-    background: url("../images/icons-app/icon-myorder.png") no-repeat center center;
+    background: url("../images/icon-myorder.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconMyCbbOrder {
-    background: url("../images/icons-app/icon-mycbborder.png") no-repeat center center;
+    background: url("../images/icon-mycbborder.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconMyCoupon {
-    background: url("../images/icons-app/icon-mycoupon.png") no-repeat center center;
+    background: url("../images/icon-mycoupon.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconVip {
-    background: url("../images/icons-app/vip.png") no-repeat center center;
+    background: url("../images/vip.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconAfterSale {
-    background: url("../images/icons-app/icon-aftersale.png") no-repeat center center;
+    background: url("../images/icon-aftersale.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconGift {
-    background: url("../images/icons-app/icon-gift.png") no-repeat center center;
+    background: url("../images/icon-gift.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .iconTousu {
-    background: url("../images/icons-app/icon-tousu.png") no-repeat center center;
+    background: url("../images/icon-tousu.png") no-repeat center center;
     background-size: 32px 32px;
 }
 .locator {
@@ -410,7 +410,7 @@ button.add > span.icon {
     background-repeat: no-repeat;
     background-size: 20px 20px;
     background-color: transparent;
-    background-image: url("../images/icons-app/icon-locator.png");
+    background-image: url("../images/icon-locator.png");
     cursor: pointer;
     position: absolute;
     right: 12px;

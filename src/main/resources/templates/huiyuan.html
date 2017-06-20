@@ -130,7 +130,7 @@
         }
 
         .arrowRight {
-            background: url("/resources/images/icons/common/arrow-right.png") no-repeat center right;
+            background: url("/images/arrow-right.png") no-repeat center right;
             background-size: 24px 24px;
         }
 
@@ -154,32 +154,26 @@
     <ul>
         <li>帐号：<a href="#"><span id="user_phoneNumber" th:text="${session.telePhoneNum}" ></span></a></li>
         <li>
-            等级：<span id="user_levelName">普通用户</span><a href="http://weixin.yikuaixiu.com/nav/weixin/notice/vip"><img class="vip-quetion"
+            等级：<span id="user_levelName">普通用户</span><a href="#"><img class="vip-quetion"
                                                                                                                      th:src="@{/images/icon-wenhao-hover.png}"/></a>
         </li>
         <li>余额：<span id="user_balance">0.00</span> 元</li>
     </ul>
 </header>
 <section id="menu">
-    <div class="flex" id="myinfo" data-url="/nav/weixin/my/info">
-        <span class="a iconMyInfo"></span><span class="b">我的信息</span><span class="c arrowRight"></span>
-    </div>
+
     <div class="flex" data-url="/order">
         <span class="a iconMyOrder"></span><span class="b">我的订单</span><span class="c arrowRight"></span>
     </div>
-    <div class="flex" data-url="/user/cbb">
-        <span class="a iconMyCbbOrder"></span><span class="b">我的车保保</span><span class="c arrowRight"></span>
+    <div class="flex" data-url="/tips">
+        <span class="a iconMyCbbOrder"></span><span class="b">我的保养记录截图</span><span class="c arrowRight"></span>
     </div>
-    <div class="flex" data-url="/nav/weixin/my/coupon">
+    <div class="flex" data-url="/tips">
         <span class="a iconMyCoupon"></span><span class="b">我的优惠券</span><span class="c arrowRight"></span>
     </div>
-    <div class="flex" data-url="/nav/weixin/user/cardPack">
-        <span class="a iconVip"></span><span class="b">我的卡包</span><span class="c arrowRight"></span>
-    </div>
 
-    <div class="flex" data-url="/nav/weixin/svc/aftersale">
-        <span class="a iconAfterSale"></span><span class="b">售后支持</span><span class="c arrowRight"></span>
-    </div>
+
+
 </section>
 <script type="text/javascript" th:src="@{/js/sea.js}"></script>
 <script type="text/javascript">

@@ -88,4 +88,9 @@ public class VvMaintainController {
     public String order4(){
         return "order4";
     }
+
+    @RequestMapping(value = "/tips", method = RequestMethod.GET)
+    public String tips(){
+        return "tips";
+    }
 }
