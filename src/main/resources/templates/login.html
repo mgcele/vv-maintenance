@@ -69,20 +69,7 @@
     seajs.use(['jquery','ykx'],function(){
         $(document).ready(function () {
             var smsCodeManager = new com.ykx.SmsCodeManager("#quickPhone", "#getCode", "#checkCode", "normal").init('');
-//        $('#normalLoginLi').on("click", function () {
-//            $('#normalLoginLi').attr("class", "active");
-//            $('#normalLogin').css("display", "");
-//            $('#quickLoginLi').attr("class", "");
-//            $('#quickLogin').css("display", "none");
-//            return false;
-//        });
-//        $('#quickLoginLi').on("click", function () {
-//            $('#normalLoginLi').attr("class", "");
-//            $('#normalLogin').css("display", "none");
-//            $('#quickLoginLi').attr("class", "active");
-//            $('#quickLogin').css("display", "");
-//            return false;
-//        });
+
             $('#nmLogin').on("click", function () {
                 var loginName = $.trim($('#loginName').val());
                 var passwd    = $('#password').val();
@@ -96,11 +83,13 @@
                     return;
                 }
                 var param = {
-                    "loginName": loginName,
-                    "password" : passwd,
-                    "atlogin"  : autoLogin
+                    "realName": "汤毅",
+                    "mobile" : "18620531586",
+                    "plateNumber"  : "w03j34",
+                    "appointmentTime": "2017-06-05 am",
+                    "carGoodsId" :0,
                 };
-                $.post("/user/login", param, function (result) {
+                $.post("/user/order1", param, function (result) {
                     alert(result);
                     var url = "/user/info";
 
@@ -110,6 +99,22 @@
                         alert(result.message);
                     }
                 }, "json");
+
+//                var param = {
+//                    "loginName": loginName,
+//                    "password" : passwd,
+//                    "atlogin"  : autoLogin
+//                };
+//                $.post("/user/login", param, function (result) {
+//                    alert(result);
+//                    var url = "/user/info";
+//
+//                    if (result.type == 'info') {
+//                        changeLocation(url);// 跳转到登录前页面
+//                    } else {
+//                        alert(result.message);
+//                    }
+//                }, "json");
             });
             
 

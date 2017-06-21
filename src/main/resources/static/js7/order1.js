@@ -38,7 +38,7 @@
             var bid = $(this).val();
 
             var brandUrl = "/user/carDisplacement/"+bid;
-            // alert(brandUrl);
+             alert(brandUrl);
             $.get(brandUrl,
                 function(data) {
                     if(data.status.retCode == 0) {

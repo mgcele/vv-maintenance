@@ -7,7 +7,9 @@
 <meta name="format-detection" content="telephone=no"/>
     <title>沃德诺威汽车上门养护</title>
 <script src="./js7/jquery-1.7.2.min.js" type="text/javascript"></script>
-<link type="text/css" rel="stylesheet" href="./css7/datepicker_canyin.css"/>
+    <script src="./js7/bootstrap-datepicker_canyin.js" type="text/javascript"></script>
+
+    <link type="text/css" rel="stylesheet" href="./css7/datepicker_canyin.css"/>
     <script type="text/javascript" src="./js7/order3.js"></script>
 
 </head>
@@ -29,7 +31,7 @@
       <span>上门保养</span>&gt;
       <span id="order3Car"></span>
    </strong>
-<form name="myform" id="myform" action="http://www.car1982.com/wxshop/mobile.php?act=module&amp;do=ordercon&amp;name=wecarservice&amp;weid=3&amp;from_user=" method="post" onsubmit="return ckform(&#39;myform&#39;);">
+<form name="myform" id="myform" action="order4.html?act=module&amp;do=ordercon&amp;name=wecarservice&amp;weid=3&amp;from_user=" method="post" onsubmit="return ckform(&#39;myform&#39;);">
 <div class="service_2" style="width:100%;padding:0px;">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <thead>
@@ -52,7 +54,7 @@
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓&nbsp;&nbsp;&nbsp;名	
             </td>
             <td style="padding-top:0px;padding-left:0px;">
-               <input type="text" name="guest" id="name" style="width:160px;height:1.8em;border:#D5D5D5 1px solid;" value="王尼玛"/>&nbsp;&nbsp;<span class="c_red">*</span>
+               <input type="text" name="guest" id="name" style="width:160px;height:1.8em;border:#D5D5D5 1px solid;" th:value="${session.realName}"/>&nbsp;&nbsp;<span class="c_red">*</span>
             </td>
          </tr>
          <tr>
@@ -60,49 +62,33 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电&nbsp;&nbsp;&nbsp;话	
             </td>
             <td style="padding-top:0px;padding-left:0px;">
-               <input type="text" name="phone_num" id="phone" style="width:160px;height:1.8em;border:#D5D5D5 1px solid;" value="15909852026"/>&nbsp;&nbsp;<span class="c_red">*</span>
+               <input type="text" name="phone_num" id="phone" style="width:160px;height:1.8em;border:#D5D5D5 1px solid;" th:value="${session.telePhoneNum}"/>&nbsp;&nbsp;<span class="c_red">*</span>
             </td>
          </tr>
          <tr>
             <td style="float:left;">
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车牌号	
             </td>
+              
             <td style="padding-top:0px;padding-left:0px;">
                <select name="carprovince" style="padding:7px 5px;border:#D5D5D5 1px solid;">
-                   <option value="陕A">陕A</option>
-                   <option value="陕B">陕B</option>
-                   <option value="陕C">陕C</option>
-                   <option value="陕D">陕D</option>
-                   <option value="陕E">陕E</option>
-                   <option value="陕F">陕F</option>
-                   <option value="陕G">陕G</option>
-                   <option value="陕H">陕H</option>
-                   <option value="陕J">陕J</option>
-                   <option value="陕K">陕K</option>
-                   <option value="陕V">陕V</option>
+                   <option value="湘A">湘A</option>
+                   <option value="湘B">湘B</option>
+                   <option value="湘C">湘C</option>
+                   <option value="湘D">湘D</option>
+                   <option value="湘E">湘E</option>
+                   <option value="湘F">湘F</option>
+                   <option value="湘G">湘G</option>
+                   <option value="湘H">湘H</option>
+                   <option value="湘J">湘J</option>
+                   <option value="湘K">湘K</option>
+                   <option value="湘L">湘L</option>
                    <option value="其他">其他</option>
                 </select>
                 <input id="plate_number2" name="car_num" type="text" value="" style="width:90px;height:1.8em;border:#D5D5D5 1px solid;"/>
             </td>
          </tr>
-         <tr>
-            <td style="float:left;">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;所在地区	
-            </td>
-            <td style="padding-top:0px;padding-left:0px;">
-               <select name="city" style="padding:7px 5px;border:#D5D5D5 1px solid;"><option value="西安市">西安市</option></select>
-                <select name="district" id="city" style="width:88px;padding:7px 5px;border:#D5D5D5 1px solid;">
-                    <option value="">请选择</option>
-                    <option value="莲湖区">莲湖区</option>
-                    <option value="雁塔区">雁塔区</option>
-                    <option value="碑林区">碑林区</option>
-                    <option value="新城区">新城区</option>
-					<option value="新城区">未央区</option>   
-					<option value="新城区">灞桥区</option>   
-					<option value="新城区">长安区</option>
-                </select>
-            </td>
-         </tr>
+
          <tr>
             <td style="float:left;">
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细地址	
@@ -141,8 +127,8 @@
    <div style="padding:10px 5%;">
    <table width="100%" cellspacing="0" cellpadding="0">
 		 <tbody><tr>
-			<td style="border:none;width:65px;padding:2px 0px 2px 20px;text-align:left;">机油(4L)</td>
-			<td style="width:140px;padding:2px 0px;text-align:left;border:none;"> <div style="margin:0px;padding:0px;line-height:30px;border:1px solid #dadadc;width:100%;"><span style="padding:5px 10px;">嘉实多金嘉护(10W-40)</span></div></td>
+			<td style="border:none;width:65px;padding:2px 0px 2px 20px;text-align:left;" id="jyCount">机油(4L)</td>
+			<td style="width:140px;padding:2px 0px;text-align:left;border:none;"> <div style="margin:0px;padding:0px;line-height:30px;border:1px solid #dadadc;width:100%;"><span style="padding:5px 10px;" id="jyName">嘉实多金嘉护(10W-40)</span></div></td>
 			<td style="border:none;width:45px;padding:2px 0px;text-align:left;" id="ssprice">&nbsp;&nbsp;&nbsp;
 				148元			</td>
 		 </tr>
@@ -159,12 +145,12 @@
 		<tr>
 			<td style="border:none;width:65px;padding:2px 0px 2px 20px;text-align:left;">服务费</td>
 			<td style="width:140px;padding:2px 0px;text-align:left;border:none;height:40px;"><div style="margin:0px;padding:0px;line-height:30px;border:1px solid #dadadc;width:100%;"><span style="width:100%;padding:5px 10px;"></span></div></td>
-			<td style="border:none;width:45px;padding:2px 0px;text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;120元</td>
+			<td style="border:none;width:45px;padding:2px 0px;text-align:left; "  id="servicePrice">&nbsp;&nbsp;&nbsp;&nbsp;120元</td>
 		 </tr>
    </tbody></table>
    </div>
    <div class="bottom" style="background-color:#f6f6f6;margin-bottom:40px;">
-      <span style="float:left;margin-left:0px;font-size:17px;">
+      <span style="float:left;margin-left:0px;font-size:17px;" id="totalPrice">
          应付总额&nbsp;&nbsp;&nbsp;268元
       </span>
      	<input type="hidden" value="1" id="car_type_14" name="tid"/>
@@ -197,7 +183,32 @@
 
 
 		return true;
-	} 
+	}
+    //服务价格
+	var servicePrice = "&nbsp;&nbsp;&nbsp;&nbsp;"  + localStorage.getItem("serVice");
+
+	$("#servicePrice").html(servicePrice);
+
+	//机油价格
+
+    $("#jyName").text(localStorage.getItem("jyName"));
+
+    var jyPrice = "&nbsp;&nbsp;&nbsp;&nbsp;" + localStorage.getItem("jyPrice")+"元";
+    $("#ssprice").html( jyPrice);
+
+    var _totalPrice = "总应付金额:"+localStorage.getItem("totalPrice") +"元";
+    $("#totalPrice").text(_totalPrice);
+
+    var jyCountText = "机油("+localStorage.getItem("jyCount")+"升)";
+    $("#jyCount").text(jyCountText);
+
+
+
+
+
+
+
+
 </script>   
      <div class="h20px"></div>
     <footer style="background-color:#dadadc;">
