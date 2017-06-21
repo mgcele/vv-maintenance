@@ -31,14 +31,7 @@ public class OrderApi {
     public OrderStep1ResponseVO addOrder(HttpSession session, @RequestBody OrderStep1RequestVO orderStep1RequestVO) {
         
         Order order = new Order();
-        order.setName(orderStep1RequestVO.getName());
-        order.setMobile(orderStep1RequestVO.getMobile());
-        order.setCarDisplacementId(orderStep1RequestVO.getCarDisplacementId());
-        order.setCarGoodsId(orderStep1RequestVO.getCarGoodsId());
-        order.setCarGoodsNumber(orderStep1RequestVO.getCarGoodsNumber());
-        order.setAppointmentTime(orderStep1RequestVO.getAppointmentTime());
-        order.setPlateNumber(orderStep1RequestVO.getPlateNumber());
-        order.setAddress(orderStep1RequestVO.getAddress());
+        BeanUtils.copyProperties(orderStep1RequestVO, order);
         String openId = (String) session.getAttribute(SessionHelper.getSessionIdForOpenId());
         order.setOpenId(openId);
         order = orderRepository.save(order);
