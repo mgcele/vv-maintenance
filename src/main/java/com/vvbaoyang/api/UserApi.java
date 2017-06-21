@@ -80,9 +80,7 @@ public class UserApi {
     private CarGoodsRepository carGoodsRepository;
     
   
-    
-    
-    @GetMapping("/carGoods/{carGoodsTypeId}")
+    @GetMapping("/carGoods/carGoodsType/{carGoodsTypeId}")
     public CarGoodsResponseVO queryCarGoods(@PathVariable(value = "carGoodsTypeId") Integer carGoodsTypeId) {
     
         List<CarGoods> list = carGoodsRepository.findByCarGoodsTypeId(carGoodsTypeId);

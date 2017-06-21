@@ -5,8 +5,11 @@ import com.vvbaoyang.repository.OrderRepository;
 import com.vvbaoyang.repository.model.Order;
 import com.vvbaoyang.vo.OrderStep1RequestVO;
 import com.vvbaoyang.vo.OrderStep1ResponseVO;
+import com.vvbaoyang.vo.OrderStep2ReponseVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +39,17 @@ public class OrderApi {
         orderStep1ResponseVO.setOrderId(order.getId());
         return orderStep1ResponseVO;
         
+    }
+    
+    @GetMapping("/step2/{orderId}")
+    public OrderStep2ReponseVO getOrder(@PathVariable(value = "orderId") Integer orderId){
+        Order order = orderRepository.findOne(orderId);
+        OrderStep2ReponseVO orderStep2ReponseVO = new OrderStep2ReponseVO();
+        orderStep2ReponseVO.setOrderId(order.getId());
+        orderStep2ReponseVO.setCarGoodsId(order.getCarGoodsId());
+        orderStep2ReponseVO.setMobile(order.getMobile());
+        orderStep2ReponseVO.setName(order.getName());
+        return orderStep2ReponseVO;
     }
     
 }
