@@ -38,7 +38,7 @@
             var bid = $(this).val();
 
             var brandUrl = "/user/carDisplacement/"+bid;
-             alert(brandUrl);
+
             $.get(brandUrl,
                 function(data) {
                     if(data.status.retCode == 0) {
@@ -71,7 +71,7 @@ function order() {
     var tid = ($("#cc").find("option:selected"));
 
     if(bid.val() == "其他") {
-        var temp1 = "mobile.php?act=module&do=step&name=wecarservice&weid=3&from_user=&bid=" + bid.val();
+        var temp1 = "tips" + bid.val();
         var dirname1 = $("#url").attr('url');
         var url1 = "http://" + window.location.host + "/" + dirname1 + "/" + temp1;
         window.location.href = url1;
@@ -99,5 +99,7 @@ function order() {
     localStorage.setItem("carType1",bid.text());
     localStorage.setItem("carType2",sid.text());
     localStorage.setItem("carType3",tid.text().split(" ")[0]);
+    localStorage.setItem("carSeriID",tid.val());
+
     window.location.href = "order2.html";
 }

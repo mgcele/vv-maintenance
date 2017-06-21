@@ -263,11 +263,14 @@ $(function(){
             }
 
             localStorage.setItem("jyName",jyName);
-            localStorage.setItem("jyID","12");
+            localStorage.setItem("jyID",$("#jy option:selected").val());
             localStorage.setItem("jyCount","4");
 
 
+
+
             window.location.href = "order3.html";
+
 			});
 		});
 
@@ -327,15 +330,12 @@ $(function(){
                <input type="checkbox" name="jy_sign" value="1" id="jy_sign" sign="jy" checked="checked"/>机油  4(L)            </td>
             <td style="padding-top:25px;">
                 <select name="jy" id="jy" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
-					<option value="1" unitPrice="148" data-unit="60" name="嘉实多金嘉护(10W-40)">嘉实多金嘉护(10W-40)(148元)/4L</option>
-					<option value="2" unitPrice="268" data-unit="78" name="嘉实多磁护(5W-40)">嘉实多磁护(5W-40)(268元)/4L</option>
-					<option value="4" unitPrice="368" data-unit="118" name="嘉实多极护(0W-40)">嘉实多极护(0W-40)(368元)/4L</option>
-					<option value="21" unitPrice="472" data-unit="118" name="美孚1号金(0W-40)">美孚1号金(0W-40)(472元)/4L</option>
-					<option value="22" unitPrice="338" data-unit="108" name="美孚1号银(5W-30)">美孚1号银(5W-30)(338元)/4L</option>
-					<option value="11" unitPrice="338" data-unit="118" name="壳牌灰(5W-40)">壳牌灰(5W-40)(338元)/4L</option>
-					<option value="12" unitPrice="248" data-unit="98" name="壳牌蓝(5W-40)">壳牌蓝(5W-40)(248元)/4L</option>
+
+					<option value="0" unitPrice="472" data-unit="118" name="美孚1号金(0W-40)">美孚1号金(0W-40)(472元)/4L</option>
+					<option value="1" unitPrice="432" data-unit="108" name="美孚1号银(5W-30)">美孚1号银(5W-30)(432元)/4L</option>
+
                 </select>
-               <span id="p_jy">￥148
+               <span id="p_jy">￥472
                 <!-- <a href='http://www.baidu.com' style="color:blue;">查看</a> -->
                </span>
             </td>

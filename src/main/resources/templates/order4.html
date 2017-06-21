@@ -118,5 +118,18 @@
          </div>
       </div>
    </footer>
+<script type="text/javascript" language="javascript">
 
-</body></html>
+
+    var brandUrl = "/order/step2/"+localStorage.getItem("orderID");
+    alert(brandUrl);
+    $.get(brandUrl,
+        function(data) {
+            if(data.status.retCode == 0) {
+              alert(data.data);
+            }
+        }, "json");
+</script>
+
+
+    </body></html>

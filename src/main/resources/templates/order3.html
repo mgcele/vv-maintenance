@@ -94,7 +94,7 @@
              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细地址	
             </td>
             <td style="padding-top:0px;padding-left:0px;">
-               <input type="text" name="address" value="" style="width:160px;height:1.8em;border:#D5D5D5 1px solid;"/>
+               <input  id="addr" type="text" name="address" value="" style="width:160px;height:1.8em;border:#D5D5D5 1px solid;"/>
             </td>
          </tr>
          <tr>
@@ -162,7 +162,12 @@
 		<input type="hidden" value="" id="car_type_16" name="peijian"/>
 		<input type="hidden" value="4" name="shuliang"/>
   </div>
-  <input class="disbtn" type="submit" name="submit" style="-webkit-appearance:none; outline:none;background:#90AA2D;padding:10px 0px;" value="确认提交"/>
+
+    <div style="text-align:center;margin-top:24px;">
+
+        <button class="disbtn" style="-webkit-appearance:none;
+	outline:none;background:#90AA2D;padding:10px 0px;" type="button" id="order3"  value="">确认提交</button>
+    </div>
 </div>
 </form>
 <script type="text/javascript" language="javascript"> 
@@ -201,6 +206,43 @@
 
     var jyCountText = "机油("+localStorage.getItem("jyCount")+"升)";
     $("#jyCount").text(jyCountText);
+
+
+
+    $("#order3").click(function(){
+        var params = { name: $("#name").val(), mobile: $("#phone").val(),carDisplacementId:localStorage.getItem("carSeriID"),
+            carGoodsId:localStorage.getItem("jyID"), carGoodsNumber:localStorage.getItem("jyCount"),appointmentTime:$("#dpd1").val(),
+            plateNumber:$("#plate_number2").val(),address:$("#addr").val()
+        };
+        params = JSON.stringify(params);
+        $.ajax({
+            url: "/order/step1",
+            type: 'POST',
+            data: params,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+
+
+
+
+                localStorage.setItem("orderID",data.data.orderId);
+
+
+
+                window.location.href = "order4.html";
+
+
+//
+            }
+        });
+
+
+
+
+    });
+
+
 
 
 
