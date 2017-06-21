@@ -22,7 +22,7 @@ public class SmsSingleSender {
     
     public SmsSingleSender() throws Exception {
         this.appid = 1400033060;
-        this.appkey = "22d4002d87acf76041ce7bda587f07fb ";
+        this.appkey = "22d4002d87acf76041ce7bda587f07fb";
     }
     
     /**
