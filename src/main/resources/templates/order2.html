@@ -32,25 +32,25 @@ $(function(){
 				{
 					totalFee += Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
 				}
-				totalFee += Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+				totalFee += Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
 				break;
 			case "jl":
-				totalFee += Math.ceil(parseFloat($("#jl option:selected").attr("price")));
+				totalFee += Math.ceil(parseFloat($("#jl option:selected").attr("unitPrice")));
 				break;
 			case "kl":
-				totalFee += parseFloat($("#kl option:selected").attr("price"));
+				totalFee += parseFloat($("#kl option:selected").attr("unitPrice"));
 				break;
 			case "kt":
-				totalFee += parseFloat($("#kt option:selected").attr("price"));
+				totalFee += parseFloat($("#kt option:selected").attr("unitPrice"));
 				break;
 		}
 	});
 	$("#total_price").text(totalFee);
-	$("input[name='price']").attr('value',totalFee);
+	$("input[name='unitPrice']").attr('value',totalFee);
 	
 	$("select").change(function(){
 		var sid = $(this).attr("id");
-		current_price = parseFloat($("#"+sid+" option:selected").attr("price"));
+		current_price = parseFloat($("#"+sid+" option:selected").attr("unitPrice"));
 		if(sid != 'kt'){
 			if(sid == 'jy'){
 				var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
@@ -59,7 +59,7 @@ $(function(){
 				{
 					current_discount_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
 				}
-				current_discount_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+				current_discount_price +=Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
 			}else{
 				current_discount_price = Math.ceil(current_price);
 			}
@@ -69,9 +69,9 @@ $(function(){
 				var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
 				if(parseFloat($("#sl").val()) > 4)
 				{
-					current_discount_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit + Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+					current_discount_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit + Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
 				}
-				current_discount_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+				current_discount_price +=Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
 			}else{
 				current_discount_price = Math.ceil(current_price);
 			}
@@ -86,7 +86,7 @@ $(function(){
 			{
 				current_jy_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
 			}
-			current_jy_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+			current_jy_price +=Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
 		}else{
 			var current_jy_price = 0;
 			var eunit = parseFloat($('#jy option:selected').attr('data-unit')); 
@@ -94,23 +94,23 @@ $(function(){
 			{
 				current_jy_price = Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
 			}
-			current_jy_price +=Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+			current_jy_price +=Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
 		}
 		
 		if($("#jl_sign").attr("checked")){
-			current_jl_price = Math.ceil(parseFloat($("#jl option:selected").attr("price")));
+			current_jl_price = Math.ceil(parseFloat($("#jl option:selected").attr("unitPrice")));
 		}else{
 			current_jl_price = 0;
 		}
 		
 		if($("#kl_sign").attr("checked")){
-			current_kl_price = Math.ceil(parseFloat($("#kl option:selected").attr("price")));
+			current_kl_price = Math.ceil(parseFloat($("#kl option:selected").attr("unitPrice")));
 		}else{
 			current_kl_price = 0;
 		}
 		
 		if($("#kt_sign").attr("checked")){
-			current_kt_price = Math.ceil(parseFloat($("#kt option:selected").attr("price")));
+			current_kt_price = Math.ceil(parseFloat($("#kt option:selected").attr("unitPrice")));
 		}else{
 			current_kt_price = 0;
 		}
@@ -123,7 +123,7 @@ $(function(){
 		totalFee += current_kl_price;
 		totalFee += current_kt_price;
 		$("#total_price").text(totalFee);
-		$("input[name='price']").attr('value',totalFee);
+		$("input[name='unitPrice']").attr('value',totalFee);
 	});
 	
 	$("input:checkbox[name!='auto_parts']").change(function(){
@@ -132,21 +132,21 @@ $(function(){
 		if($(this).attr("checked")){
 			$("input:checkbox[name='auto_parts']").attr("checked", false);
 			if(sign != 'kt'){
-				totalFee += Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+				totalFee += Math.ceil(parseFloat($("#"+sign+" option:selected").attr("unitPrice")));
 			}else{
-				totalFee += Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+				totalFee += Math.ceil(parseFloat($("#"+sign+" option:selected").attr("unitPrice")));
 			}
 			$("#total_price").text(totalFee);
-			$("input[name='price']").attr('value',totalFee);
+			$("input[name='unitPrice']").attr('value',totalFee);
 		}else{
 			if(sign != 'kt'){
-				totalFee = totalFee - Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+				totalFee = totalFee - Math.ceil(parseFloat($("#"+sign+" option:selected").attr("unitPrice")));
 			}
 			else{
-				totalFee = totalFee - Math.ceil(parseFloat($("#"+sign+" option:selected").attr("price")));
+				totalFee = totalFee - Math.ceil(parseFloat($("#"+sign+" option:selected").attr("unitPrice")));
 			}
 			$("#total_price").text(totalFee);
-			$("input[name='price']").attr('value',totalFee);
+			$("input[name='unitPrice']").attr('value',totalFee);
 		}  
 	});
 	$("#auto_parts").click(function(){
@@ -156,7 +156,7 @@ $(function(){
 			$("#kl_sign").attr("checked", false);
 			$("#kt_sign").attr("checked", false);
 			$("#total_price").text(serviceFee);
-			$("input[name='price']").attr('value',serviceFee);
+			$("input[name='unitPrice']").attr('value',serviceFee);
 		}else{
 			
 			if($("input[name='need'][value='0']").attr("checked")){//alert(1);
@@ -178,21 +178,21 @@ $(function(){
 						{
 							totalFee += Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
 						}
-						totalFee += Math.ceil(1.0*parseFloat($("#jy option:selected").attr("price")));
+						totalFee += Math.ceil(1.0*parseFloat($("#jy option:selected").attr("unitPrice")));
 						break;
 					case "jl":
-						totalFee += Math.ceil(1.0*parseFloat($("#jl option:selected").attr("price")));
+						totalFee += Math.ceil(1.0*parseFloat($("#jl option:selected").attr("unitPrice")));
 						break;
 					case "kl":
-						totalFee += Math.ceil(1.0*parseFloat($("#kl option:selected").attr("price")));
+						totalFee += Math.ceil(1.0*parseFloat($("#kl option:selected").attr("unitPrice")));
 						break;
 					case "kt":
-						totalFee += Math.ceil(1.0*parseFloat($("#kt option:selected").attr("price")));
+						totalFee += Math.ceil(1.0*parseFloat($("#kt option:selected").attr("unitPrice")));
 						break;
 				}
 			});			
 			$("#total_price").text(totalFee);
-			$("input[name='price']").attr('value',totalFee);
+			$("input[name='unitPrice']").attr('value',totalFee);
 		}
 	});
 	
@@ -220,28 +220,28 @@ $(function(){
 					{
 						totalFee += Math.ceil(parseFloat($("#sl").val()) - 4)*eunit;
 					}
-					totalFee += parseFloat($("#jy option:selected").attr("price"));
+					totalFee += parseFloat($("#jy option:selected").attr("unitPrice"));
 					break;
 				case "jl":
-					totalFee += parseFloat($("#jl option:selected").attr("price"));
+					totalFee += parseFloat($("#jl option:selected").attr("unitPrice"));
 					break;
 				case "kl":
-					totalFee += parseFloat($("#kl option:selected").attr("price"));
+					totalFee += parseFloat($("#kl option:selected").attr("unitPrice"));
 					break;
 				case "kt":
-					totalFee += Math.ceil(0.6*parseFloat($("#kt option:selected").attr("price")));
+					totalFee += Math.ceil(0.6*parseFloat($("#kt option:selected").attr("unitPrice")));
 					break;
 			}
 		});
 		$("#total_price").text(totalFee);
-		$("input[name='price']").attr('value',totalFee);		
+		$("input[name='unitPrice']").attr('value',totalFee);
 	})
 			/*点击立即预定*/
 		$("#order2CarType").click(function(){
 
 
             //机油价格
-            var jyPrice = Math.ceil(parseFloat($("#jy option:selected").attr("price")));
+            var jyPrice = Math.ceil(parseFloat($("#jy option:selected").attr("unitPrice")));
             var serVice = Math.ceil(parseFloat($("#service").attr("value")));
 
             var jyName = $("#jy option:selected").attr("name" +
@@ -307,7 +307,7 @@ $(function(){
 			 	<td align="left" style="font-size:15px;width:30%;height:30px;">
 					总价:￥<span id="total_price">268</span>&nbsp;
 						<input type="hidden" name="sname" id="sname" value="北汽-北汽E系列-1.3L"/>
-						<input type="hidden" name="price" id="price" value="268"/>
+						<input type="hidden" name="unitPrice" id="unitPrice" value="268"/>
 						<input type="hidden" name="shuliang" id="sl" value="4"/>
 						<input type="hidden" name="typeid" id="tid" value="1"/>
 
@@ -327,13 +327,13 @@ $(function(){
                <input type="checkbox" name="jy_sign" value="1" id="jy_sign" sign="jy" checked="checked"/>机油  4(L)            </td>
             <td style="padding-top:25px;">
                 <select name="jy" id="jy" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
-					<option value="1" price="148" data-unit="60" name="嘉实多金嘉护(10W-40)">嘉实多金嘉护(10W-40)(148元)/4L</option>
-					<option value="2" price="268" data-unit="78" name="嘉实多磁护(5W-40)">嘉实多磁护(5W-40)(268元)/4L</option>
-					<option value="4" price="368" data-unit="118" name="嘉实多极护(0W-40)">嘉实多极护(0W-40)(368元)/4L</option>
-					<option value="21" price="472" data-unit="118" name="美孚1号金(0W-40)">美孚1号金(0W-40)(472元)/4L</option>
-					<option value="22" price="338" data-unit="108" name="美孚1号银(5W-30)">美孚1号银(5W-30)(338元)/4L</option>
-					<option value="11" price="338" data-unit="118" name="壳牌灰(5W-40)">壳牌灰(5W-40)(338元)/4L</option>
-					<option value="12" price="248" data-unit="98" name="壳牌蓝(5W-40)">壳牌蓝(5W-40)(248元)/4L</option>
+					<option value="1" unitPrice="148" data-unit="60" name="嘉实多金嘉护(10W-40)">嘉实多金嘉护(10W-40)(148元)/4L</option>
+					<option value="2" unitPrice="268" data-unit="78" name="嘉实多磁护(5W-40)">嘉实多磁护(5W-40)(268元)/4L</option>
+					<option value="4" unitPrice="368" data-unit="118" name="嘉实多极护(0W-40)">嘉实多极护(0W-40)(368元)/4L</option>
+					<option value="21" unitPrice="472" data-unit="118" name="美孚1号金(0W-40)">美孚1号金(0W-40)(472元)/4L</option>
+					<option value="22" unitPrice="338" data-unit="108" name="美孚1号银(5W-30)">美孚1号银(5W-30)(338元)/4L</option>
+					<option value="11" unitPrice="338" data-unit="118" name="壳牌灰(5W-40)">壳牌灰(5W-40)(338元)/4L</option>
+					<option value="12" unitPrice="248" data-unit="98" name="壳牌蓝(5W-40)">壳牌蓝(5W-40)(248元)/4L</option>
                 </select>
                <span id="p_jy">￥148
                 <!-- <a href='http://www.baidu.com' style="color:blue;">查看</a> -->
@@ -346,7 +346,7 @@ $(function(){
             </td>
             <td>
                <select name="jl" id="jl" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
-               		                		 	 <option value="0" price="0">请与客服咨询</option>
+               		                		 	 <option value="0" unitPrice="0">请与客服咨询</option>
                		                </select>
                                		 	<span id="p_jl">￥0</span>
                		             </td>
@@ -357,7 +357,7 @@ $(function(){
             </td>
             <td>
                <select name="kl" id="kl" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
-               		               			<option value="0" price="0">请与客服咨询</option>
+               		               			<option value="0" unitPrice="0">请与客服咨询</option>
                		               </select>
                               		<span id="p_kl">￥0</span>
                            </td>
@@ -368,7 +368,7 @@ $(function(){
             </td>
             <td>
                <select name="kt" id="kt" style="padding:5px 5px; height:3em;border:#D5D5D5 1px solid;text-align:left;">
-				   <option value="0" price="0">请与客服咨询</option>
+				   <option value="0" unitPrice="0">请与客服咨询</option>
                </select>
                <span id="p_kt">￥0</span>
             </td>

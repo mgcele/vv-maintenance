@@ -21,14 +21,30 @@ public class CarGoods implements Serializable{
     @Column(name = "id")
     private Integer id;
     
-    @Column(name = "price")
-    private BigDecimal price;
+    /**
+     * 商品名
+     */
+    @Column(name = "car_goods_title")
+    private String carGoodsTitle;
     
     /**
-     * 机油品牌
+     * 商品单价
      */
-    @Column(name = "oil_brand")
-    private String oilBrand;
+    @Column(name = "unitPrice")
+    private BigDecimal unitPrice;
+    
+    
+    /**
+     * 商品类型名称
+     */
+    @Column(name = "car_goods_type_name")
+    private String carGoodsTypeName;
+    
+    /**
+     * 商品类型id
+     */
+    @Column(name = "car_goods_type_id")
+    private Integer carGoodsTypeId;
     
     public Integer getId() {
         return id;
@@ -38,12 +54,35 @@ public class CarGoods implements Serializable{
         this.id = id;
     }
     
-    public BigDecimal getPrice() {
-        return price;
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
     }
     
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
     }
     
+    public String getCarGoodsTypeName() {
+        return carGoodsTypeName;
+    }
+    
+    public void setCarGoodsTypeName(String carGoodsTypeName) {
+        this.carGoodsTypeName = carGoodsTypeName;
+    }
+    
+    public Integer getCarGoodsTypeId() {
+        return carGoodsTypeId;
+    }
+    
+    public void setCarGoodsTypeId(Integer carGoodsTypeId) {
+        this.carGoodsTypeId = carGoodsTypeId;
+    }
+    
+    public String getCarGoodsTitle() {
+        return carGoodsTitle;
+    }
+    
+    public void setCarGoodsTitle(String carGoodsTitle) {
+        this.carGoodsTitle = carGoodsTitle;
+    }
 }

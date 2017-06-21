@@ -23,7 +23,8 @@ import com.vvbaoyang.vo.CarGoodsResponseVO;
 import com.vvbaoyang.vo.CarSerisResponse;
 import com.vvbaoyang.vo.CarSerisResponseVO;
 import com.vvbaoyang.vo.JsonRestResponseVO;
-import com.vvbaoyang.vo.OrderRequestVO;
+import com.vvbaoyang.vo.OrderStep1RequestVO;
+import com.vvbaoyang.vo.OrderStep1ResponseVO;
 import com.vvbaoyang.vo.RegisterRequestVO;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -78,25 +79,13 @@ public class UserApi {
     @Autowired
     private CarGoodsRepository carGoodsRepository;
     
-    @Autowired
-    private OrderRepository orderRepository;
+  
     
-    @PostMapping("/order")
-    public AbstractGeneResponse addOrder(HttpSession session, @RequestBody OrderRequestVO orderRequestVO) {
-        
-        Order order = new Order();
-        BeanUtils.copyProperties(orderRequestVO, order);
-        String openId = (String) session.getAttribute(SessionHelper.getSessionIdForOpenId());
-        order.setOpenId(openId);
-        orderRepository.save(order);
-        return new AbstractGeneResponse();
-        
-    }
     
-    @GetMapping("/carGoods")
-    public CarGoodsResponseVO queryCarGoods() {
+    @GetMapping("/carGoods/{carGoodsTypeId}")
+    public CarGoodsResponseVO queryCarGoods(@PathVariable(value = "carGoodsTypeId") Integer carGoodsTypeId) {
     
-        List<CarGoods> list = carGoodsRepository.findAll();
+        List<CarGoods> list = carGoodsRepository.findByCarGoodsTypeId(carGoodsTypeId);
         CarGoodsResponseVO carGoodsResponseVO = new CarGoodsResponseVO();
         if (CollectionUtils.isEmpty(list)) {
             return carGoodsResponseVO;
@@ -210,7 +199,7 @@ public class UserApi {
     }
     
     /**
-     * 生产验证码
+     * 生成验证码
      */
     private String generateCode() {
         return RandomUtil.randomInt(MIN_VC, MAX_VC) + "";
