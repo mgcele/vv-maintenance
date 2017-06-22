@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.math.BigDecimal;
 
 /**
  * @author mgcele
@@ -39,6 +40,10 @@ public class OrderApi {
         BeanUtils.copyProperties(orderStep1RequestVO, order);
         String openId = (String) session.getAttribute(SessionHelper.getSessionIdForOpenId());
         order.setOpenId(openId);
+    
+        CarGoods carGoods = carGoodsRepository.findOne(orderStep1RequestVO.getCarGoodsId());
+        BigDecimal actualPaymentPrice = carGoods.getUnitPrice().multiply(BigDecimal.valueOf(orderStep1RequestVO.getCarGoodsNumber())).add(BigDecimal.valueOf(120));
+        order.setBugetTotalPrice(actualPaymentPrice);
         order = orderRepository.save(order);
         OrderStep1ResponseVO orderStep1ResponseVO = new OrderStep1ResponseVO();
         orderStep1ResponseVO.setOrderId(order.getId());
