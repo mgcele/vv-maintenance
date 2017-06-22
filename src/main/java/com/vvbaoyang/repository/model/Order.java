@@ -52,7 +52,7 @@ public class Order implements Serializable {
     /**
      * 预算原价
      */
-    @Column(name = "buget_total_price")
+    @Column(name = "budget_total_price")
     private BigDecimal bugetTotalPrice;
     
     /**
