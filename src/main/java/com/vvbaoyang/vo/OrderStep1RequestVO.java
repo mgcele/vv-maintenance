@@ -27,6 +27,8 @@ public class OrderStep1RequestVO implements Serializable{
     
     private String address;
     
+    private String remark;
+    
     public String getName() {
         return name;
     }
@@ -89,5 +91,13 @@ public class OrderStep1RequestVO implements Serializable{
     
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    public String getRemark() {
+        return remark;
+    }
+    
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

@@ -74,6 +74,12 @@ public class Order implements Serializable {
     private String paymentNumber;
     
     /**
+     * 备注
+     */
+    @Column(name = "remark")
+    private String remark;
+    
+    /**
      * 订单是否完成
      */
     @Column(name = "is_completed")
@@ -197,5 +203,13 @@ public class Order implements Serializable {
     
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+    
+    public String getRemark() {
+        return remark;
+    }
+    
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
