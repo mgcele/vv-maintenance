@@ -21,21 +21,17 @@
    
    <div class="logo">
 	   <img src="./images7/nav_logo.jpg" style="width:60px;"/>
-      <nav>
-      </nav>
+
    </div>
- <div class=" h10px"></div>
+
    <strong class="service_tag" style="font-size:12px;padding-bottom:2px;">
-      <span>订单确认</span>
+
   </strong>
- 
-  <div style="padding:0px;margin:10px;">
-	  <a class="disbtn" id="abc" href="javascript:;" onclick="location.href=&#39;mobile.php?act=module&amp;status=0&amp;name=wecarservice&amp;do=orderlist&amp;weid=3&#39;" style="border-radius:5px 0px 0px 5px;float:left;width:50%;background:#BC4C4C;padding:5px 0px;font-size:14px;">未确认订单</a>
-	<a class="disbtn" id="abc" href="javascript:;" onclick="location.href=&#39;mobile.php?act=module&amp;status=3&amp;name=wecarservice&amp;do=orderlist&amp;weid=3&#39;" style="border-radius:0px 5px 5px 0px;float:left;width:50%;padding:5px 0px;font-size:14px;background:#ffffff;color:#000;">已完成订单</a>
-  </div>
+
+
    <div class="h20px" style="height:10px;"></div>
     <strong class="service_tag" style="font-size:12px;padding:15px 0 5px 10px;border:none;font-size:15px;">
-      <span>订单编号: 335</span><span style="float:right;font-size:12px;margin-left:15%;">8: 00订单未确认</span>
+      <span id="orderID">订单编号: 335</span>
   </strong>
   
 
@@ -43,7 +39,7 @@
 <div class="myoder img-rounded" style="margin:0px 10px 10px 10px;background:#fff;">
 	<div class="myoder-detail" style="height:25px;padding: 5px 0px 0px 0px;margin:5px 10px 0px 10px;border-bottom:1px solid #b2b2b2;">
 		<div class="pull-left" style="margin-left:10px;margin-top:8px">
-			<span>电话</span>&nbsp;&nbsp;&nbsp;&nbsp;15909852026		</div>
+            <span>电话</span>	<span id="telePhoneNum"> </span></div>
 	</div>
 	<div class="myoder-detail" style="height:18px;padding: 0px;margin:5px 10px 0px 10px;border-bottom:1px solid #b2b2b2;">
 		<div class="pull-left" style="margin-left:10px;">
@@ -61,7 +57,7 @@
 	<div style="margin-top:10px;margin-bottom:10px;text-align:center;line-height:33px;height:33px;font-size:15px;font-weight:bold;"><span>服务项目</span></div>
 	<div class="myoder-detail" style="height:18px;padding: 0px;margin:5px 10px 0px 10px;border-bottom:1px solid #b2b2b2;">
 		<div class="pull-left" style="margin-left:10px;">
-			<span>机油</span>&nbsp;&nbsp;&nbsp;&nbsp;嘉实多金嘉护(10W-40)			<span class="name"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+			<span>机油</span><span>&nbsp;&nbsp;&nbsp;&nbsp;</span>	<span  id="oilName">	</span>	<span class="name"></span>&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 	</div>
 	<div class="myoder-detail" style="height:18px;padding: 0px;margin:5px 10px 0px 10px;border-bottom:1px solid #b2b2b2;">
@@ -75,7 +71,7 @@
 		</div>
 	</div>
 		<div class="myoder-total" style=" height: 30px;line-height:30px;margin-left:20px;">
-		<span>总价：<span class="false"> 
+		<span>总价：<span id="totalPrice" class="false">
                         268 元
         </span>
 		</span>
@@ -122,11 +118,21 @@
 
 
     var brandUrl = "/order/step2/"+localStorage.getItem("orderID");
-    alert(brandUrl);
+
     $.get(brandUrl,
         function(data) {
             if(data.status.retCode == 0) {
-              alert(data.data);
+                var orderID = data.data.orderId;
+                $("#orderID").html("订单编号："+orderID);
+                var phoneNumber = localStorage.getItem("phoneNum");//data.data.telePhoneNum;
+                $("#telePhoneNum").html("&nbsp;&nbsp;&nbsp;&nbsp;"+phoneNumber);
+                var totalPrice = localStorage.getItem("totalPrice");// data.data.
+                $("#totalPrice").html(totalPrice+"元");
+                var oilName = localStorage.getItem("jyName");
+                $("#oilName").text(oilName);
+
+
+
             }
         }, "json");
 </script>

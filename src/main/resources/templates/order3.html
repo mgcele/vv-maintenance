@@ -209,9 +209,14 @@
 
 
 
+
     $("#order3").click(function(){
+
+        localStorage.setItem("phoneNum",$("#phone").val());
+
         var params = { name: $("#name").val(), mobile: $("#phone").val(),carDisplacementId:localStorage.getItem("carSeriID"),
-            carGoodsId:localStorage.getItem("jyID"), carGoodsNumber:localStorage.getItem("jyCount"),appointmentTime:$("#dpd1").val(),
+            carGoodsId:localStorage.getItem("jyID"),
+            carGoodsNumber:localStorage.getItem("jyCount"),appointmentTime:$("#dpd1").val(),
             plateNumber:$("#plate_number2").val(),address:$("#addr").val()
         };
         params = JSON.stringify(params);
