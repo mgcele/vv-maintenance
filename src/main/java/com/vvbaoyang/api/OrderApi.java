@@ -1,7 +1,9 @@
 package com.vvbaoyang.api;
 
 import com.vvbaoyang.helper.SessionHelper;
+import com.vvbaoyang.repository.CarGoodsRepository;
 import com.vvbaoyang.repository.OrderRepository;
+import com.vvbaoyang.repository.model.CarGoods;
 import com.vvbaoyang.repository.model.Order;
 import com.vvbaoyang.vo.OrderStep1RequestVO;
 import com.vvbaoyang.vo.OrderStep1ResponseVO;
@@ -27,6 +29,9 @@ public class OrderApi {
     @Autowired
     private OrderRepository orderRepository;
     
+    @Autowired
+    private CarGoodsRepository carGoodsRepository;
+    
     @PostMapping("/step1")
     public OrderStep1ResponseVO addOrder(HttpSession session, @RequestBody OrderStep1RequestVO orderStep1RequestVO) {
         
@@ -46,9 +51,11 @@ public class OrderApi {
         Order order = orderRepository.findOne(orderId);
         OrderStep2ReponseVO orderStep2ReponseVO = new OrderStep2ReponseVO();
         orderStep2ReponseVO.setOrderId(order.getId());
-        orderStep2ReponseVO.setCarGoodsId(order.getCarGoodsId());
+        orderStep2ReponseVO.setBugetTotalPrice(order.getBugetTotalPrice());
         orderStep2ReponseVO.setMobile(order.getMobile());
         orderStep2ReponseVO.setName(order.getName());
+        CarGoods carGoods = carGoodsRepository.findOne(order.getCarGoodsId());
+        orderStep2ReponseVO.setCarGoodsTitle(carGoods.getCarGoodsTitle());
         return orderStep2ReponseVO;
     }
     

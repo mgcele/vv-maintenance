@@ -1,5 +1,7 @@
 package com.vvbaoyang.vo;
 
+import java.math.BigDecimal;
+
 /**
  * @author mgcele
  */
@@ -12,7 +14,9 @@ public class OrderStep2ReponseVO extends AbstractGeneResponse{
     
     private String mobile;
     
-    private Integer carGoodsId;
+    private String carGoodsTitle;
+    
+    private BigDecimal bugetTotalPrice;
     
     public Integer getOrderId() {
         return orderId;
@@ -38,11 +42,19 @@ public class OrderStep2ReponseVO extends AbstractGeneResponse{
         this.mobile = mobile;
     }
     
-    public Integer getCarGoodsId() {
-        return carGoodsId;
+    public String getCarGoodsTitle() {
+        return carGoodsTitle;
     }
     
-    public void setCarGoodsId(Integer carGoodsId) {
-        this.carGoodsId = carGoodsId;
+    public void setCarGoodsTitle(String carGoodsTitle) {
+        this.carGoodsTitle = carGoodsTitle;
+    }
+    
+    public BigDecimal getBugetTotalPrice() {
+        return bugetTotalPrice;
+    }
+    
+    public void setBugetTotalPrice(BigDecimal bugetTotalPrice) {
+        this.bugetTotalPrice = bugetTotalPrice;
     }
 }
