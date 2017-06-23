@@ -59,6 +59,7 @@ public class OrderApi {
         orderStep2ReponseVO.setBugetTotalPrice(order.getBugetTotalPrice());
         orderStep2ReponseVO.setMobile(order.getMobile());
         orderStep2ReponseVO.setName(order.getName());
+        orderStep2ReponseVO.setAppointmentTime(order.getAppointmentTime());
         CarGoods carGoods = carGoodsRepository.findOne(order.getCarGoodsId());
         orderStep2ReponseVO.setCarGoodsTitle(carGoods.getCarGoodsTitle());
         return orderStep2ReponseVO;

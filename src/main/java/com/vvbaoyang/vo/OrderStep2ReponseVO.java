@@ -1,6 +1,7 @@
 package com.vvbaoyang.vo;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author mgcele
@@ -15,6 +16,8 @@ public class OrderStep2ReponseVO extends AbstractGeneResponse{
     private String mobile;
     
     private String carGoodsTitle;
+    
+    private Date appointmentTime;
     
     private BigDecimal bugetTotalPrice;
     
@@ -56,5 +59,13 @@ public class OrderStep2ReponseVO extends AbstractGeneResponse{
     
     public void setBugetTotalPrice(BigDecimal bugetTotalPrice) {
         this.bugetTotalPrice = bugetTotalPrice;
+    }
+    
+    public Date getAppointmentTime() {
+        return appointmentTime;
+    }
+    
+    public void setAppointmentTime(Date appointmentTime) {
+        this.appointmentTime = appointmentTime;
     }
 }
