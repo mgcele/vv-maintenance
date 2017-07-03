@@ -72,6 +72,15 @@ public class VvMaintainController {
 
         return "qualifications";
     }
+    @RequestMapping(value = "/choseProgram", method = RequestMethod.GET)
+    public String choseProgram(){
+        return "choseProgram";
+    }
+
+    @RequestMapping(value = "/programDetails", method = RequestMethod.GET)
+    public String programDetails(){
+        return "programDetails";
+    }
 
 
     @RequestMapping(value = "/order2", method = RequestMethod.GET)
@@ -87,6 +96,11 @@ public class VvMaintainController {
     @RequestMapping(value = "/order4", method = RequestMethod.GET)
     public String order4(){
         return "order4";
+    }
+
+    @RequestMapping(value = "/activty", method = RequestMethod.GET)
+    public String activty(){
+        return "activty";
     }
 
     @RequestMapping(value = "/tips", method = RequestMethod.GET)
